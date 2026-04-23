@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Aparaitech Software | Book a Demo - Smart Attendance & HRMS Platform</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+            min-height: 100vh;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .bg-animation .circle {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(30,90,122,0.15), rgba(21,74,100,0.08));
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .circle-1 { width: 300px; height: 300px; top: -100px; left: -100px; animation-delay: 0s; }
+        .circle-2 { width: 500px; height: 500px; bottom: -200px; right: -150px; animation-delay: 5s; }
+        .circle-3 { width: 200px; height: 200px; top: 40%; left: 70%; animation-delay: 2s; }
+        .circle-4 { width: 400px; height: 400px; bottom: 20%; left: -100px; animation-delay: 10s; }
+        .circle-5 { width: 150px; height: 150px; top: 60%; right: 10%; animation-delay: 7s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(5deg); }
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #60a5fa, #22d3ee);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .logo i {
+            font-size: 2rem;
+            color: #22d3ee;
+            background: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .nav-links a:hover {
+            color: #22d3ee;
+        }
+
+        .demo-btn-nav {
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            padding: 8px 24px;
+            border-radius: 40px;
+            color: white !important;
+            font-weight: 600;
+        }
+
+        .demo-btn-nav:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(34,197,94,0.3);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 7rem 2rem 4rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 5rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff, #94a3b8);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .hero-content .highlight {
+            background: linear-gradient(135deg, #22d3ee, #60a5fa);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            color: #94a3b8;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .features-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .feature-tag {
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            padding: 6px 16px;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            color: #22c55e;
+        }
+
+        .hero-image {
+            position: relative;
+            animation: floatImage 4s ease-in-out infinite;
+        }
+
+        @keyframes floatImage {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 32px;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+        }
+
+        /* Stats Section */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-bottom: 5rem;
+            text-align: center;
+            animation: fadeInUp 0.8s ease 0.2s backwards;
+        }
+
+        .stat-item {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 28px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: 0.3s;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.08);
+            border-color: rgba(34,211,238,0.3);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #22d3ee;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: #94a3b8;
+            margin-top: 0.5rem;
+        }
+
+        /* Form Section */
+        .form-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            background: rgba(255,255,255,0.03);
+            backdrop-filter: blur(10px);
+            border-radius: 48px;
+            padding: 3rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 4rem;
+            animation: fadeInUp 0.8s ease 0.4s backwards;
+        }
+
+        .form-info h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .form-info p {
+            color: #94a3b8;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .benefit-item i {
+            width: 32px;
+            height: 32px;
+            background: rgba(34,197,94,0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #22c55e;
+        }
+
+        .booking-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 18px;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 20px;
+            font-size: 1rem;
+            color: white;
+            font-family: inherit;
+            transition: 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #22d3ee;
+            background: rgba(255,255,255,0.12);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #64748b;
+        }
+
+        .form-group select option {
+            background: #1e293b;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            border: none;
+            padding: 14px;
+            border-radius: 40px;
+            font-size: 1rem;
+            font-weight: 700;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(34,197,94,0.3);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Features Grid */
+        .showcase {
+            text-align: center;
+            margin-bottom: 4rem;
+            animation: fadeInUp 0.8s ease 0.6s backwards;
+        }
+
+        .showcase h2 {
+            font-size: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 28px;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(34,211,238,0.3);
+            background: rgba(255,255,255,0.08);
+        }
+
+        .feature-card i {
+            font-size: 3rem;
+            color: #22d3ee;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .feature-card p {
+            color: #94a3b8;
+            line-height: 1.5;
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding: 3rem 2rem 2rem;
+            margin-top: 3rem;
+        }
+
+        .footer-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-logo .logo {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo p {
+            color: #94a3b8;
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        .footer-links h4 {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .footer-links a {
+            display: block;
+            color: #94a3b8;
+            text-decoration: none;
+            margin-bottom: 0.6rem;
+            font-size: 0.85rem;
+            transition: 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #22d3ee;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #64748b;
+            font-size: 0.8rem;
+        }
+
+        /* Toast Message */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #22c55e;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 60px;
+            font-weight: 500;
+            z-index: 1100;
+            animation: slideIn 0.3s ease;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            max-width: 350px;
+        }
+
+        .toast.error {
+            background: #dc2626;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @media (max-width: 968px) {
+            .hero, .form-section {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .nav-container {
+                flex-direction: column;
+            }
+            .container {
+                padding-top: 8rem;
+            }
+        }
+
+        @media (max-width: 568px) {
+            .stats {
+                grid-template-columns: 1fr;
+            }
+            .form-section {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="bg-animation">
+    <div class="circle circle-1"></div>
+    <div class="circle circle-2"></div>
+    <div class="circle circle-3"></div>
+    <div class="circle circle-4"></div>
+    <div class="circle circle-5"></div>
+</div>
+
+<!-- Header -->
+<header class="header">
+    <div class="nav-container">
+        <div class="logo">
+            <i class="fas fa-chart-line"></i>
+            <span>APARAITECH SOFTWARE</span>
+        </div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#features">Features</a>
+            <a href="#demo">Book Demo</a>
+            <a href="#contact">Contact</a>
+            <a href="#demo" class="demo-btn-nav">Book a Demo →</a>
+        </div>
+    </div>
+</header>
+
+<div class="container" id="home">
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="hero-content">
+            <h1>
+                Smart Attendance &<br>
+                <span class="highlight">HRMS Platform</span>
+            </h1>
+            <p>Transform your workforce management with AI-powered attendance tracking, QR check-ins, real-time analytics, and automated reporting. Trusted by 500+ enterprises.</p>
+            <div class="features-list">
+                <span class="feature-tag">✓ QR Code Attendance</span>
+                <span class="feature-tag">✓ Half/Quarter Day Auto</span>
+                <span class="feature-tag">✓ Performance Dashboard</span>
+                <span class="feature-tag">✓ Excel Export</span>
+                <span class="feature-tag">✓ Holiday Management</span>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="C:\Users\Shreya\Downloads\Screenshot 2026-04-23 215442.jpg" alt="Dashboard Preview">
+        </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats">
+        <div class="stat-item">
+            <div class="stat-number">500+</div>
+            <div class="stat-label">Active Companies</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">50K+</div>
+            <div class="stat-label">Daily Users</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">99.9%</div>
+            <div class="stat-label">Uptime</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">24/7</div>
+            <div class="stat-label">Support</div>
+        </div>
+    </div>
+
+    <!-- Booking Form Section -->
+    <div class="form-section" id="demo">
+        <div class="form-info">
+            <h2>📅 Book a <span style="color:#22d3ee;">Live Demo</span></h2>
+            <p>See how Aparaitech HRMS can transform your attendance management. Our product experts will walk you through:</p>
+            <div class="benefit-item">
+                <i class="fas fa-check"></i>
+                <span>QR Code based check-in/out</span>
+            </div>
+            <div class="benefit-item">
+                <i class="fas fa-check"></i>
+                <span>Auto half-day & quarter-day calculation</span>
+            </div>
+            <div class="benefit-item">
+                <i class="fas fa-check"></i>
+                <span>Real-time admin dashboard & reports</span>
+            </div>
+            <div class="benefit-item">
+                <i class="fas fa-check"></i>
+                <span>Employee performance tracking</span>
+            </div>
+            <div class="benefit-item">
+                <i class="fas fa-check"></i>
+                <span>Excel export & holiday management</span>
+            </div>
+        </div>
+
+        <form id="demoForm" class="booking-form">
+            <div class="form-group">
+                <input type="text" id="fullName" placeholder="Full Name *" required>
+            </div>
+            <div class="form-group">
+                <input type="email" id="email" placeholder="Email Address *" required>
+            </div>
+            <div class="form-group">
+                <input type="tel" id="phone" placeholder="Phone Number *" required>
+            </div>
+            <div class="form-group">
+                <input type="text" id="companyName" placeholder="Company Name *" required>
+            </div>
+            <div class="form-group">
+                <select id="employees" required>
+                    <option value="">Number of Employees *</option>
+                    <option>1-50</option>
+                    <option>51-200</option>
+                    <option>201-500</option>
+                    <option>501-1000</option>
+                    <option>1000+</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <select id="demoDate" required>
+                    <option value="">Select Preferred Demo Date *</option>
+                    <option>Tomorrow</option>
+                    <option>Day after tomorrow</option>
+                    <option>Next Week</option>
+                    <option>Custom Date</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <textarea id="message" rows="3" placeholder="Any specific requirements? (Optional)"></textarea>
+            </div>
+            <button type="submit" class="submit-btn" id="submitBtn">
+                <i class="fas fa-calendar-check"></i> Schedule Free Demo
+            </button>
+        </form>
+    </div>
+
+    <!-- Features Showcase -->
+    <div class="showcase" id="features">
+        <h2>🚀 Why Companies Love <span style="color:#22d3ee;">Aparaitech</span></h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <i class="fas fa-qrcode"></i>
+                <h3>QR Code Attendance</h3>
+                <p>One scan check-in/out with secure QR codes for each workstation.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-brain"></i>
+                <h3>Smart Rule Engine</h3>
+                <p>Auto half-day & quarter-day based on check-in/out times.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-chart-line"></i>
+                <h3>Real-time Dashboard</h3>
+                <p>Live employee check-in status with performance analytics.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-file-excel"></i>
+                <h3>Excel Export</h3>
+                <p>One-click export of attendance reports to Excel/CSV.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-calendar-alt"></i>
+                <h3>Holiday Management</h3>
+                <p>Company holiday calendar with auto marking.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Secure & Reliable</h3>
+                <p>Enterprise-grade security with 99.9% uptime.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer" id="contact">
+    <div class="footer-container">
+        <div class="footer-logo">
+            <div class="logo">
+                <i class="fas fa-chart-line"></i>
+                <span>APARAITECH</span>
+            </div>
+            <p>Smart Attendance & HRMS Platform<br>Transforming workforce management since 2020</p>
+        </div>
+        <div class="footer-links">
+            <h4>Quick Links</h4>
+            <a href="#home">Home</a>
+            <a href="#features">Features</a>
+            <a href="#demo">Book Demo</a>
+            <a href="#">Pricing</a>
+        </div>
+        <div class="footer-links">
+            <h4>Support</h4>
+            <a href="#">Help Center</a>
+            <a href="#">Documentation</a>
+            <a href="#">API Docs</a>
+            <a href="#">Status</a>
+        </div>
+        <div class="footer-links">
+            <h4>Contact</h4>
+            <a href="mailto:contact@aparaitech.com"><i class="fas fa-envelope"></i> contact@aparaitech.com</a>
+            <a href="tel:+919876543210"><i class="fas fa-phone"></i> +91 98765 43210</a>
+            <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 Aparaitech Software Pvt Ltd. All rights reserved. | Innovating Workforce Solutions</p>
+    </div>
+</footer>
+
+<script>
+    // ✅ REPLACE THIS WITH YOUR ACTUAL DEPLOYED URL
+    const GOOGLE_SHEET_API_URL = "https://script.google.com/macros/s/AKfycbz0n24oth6MCEgl4bRG9UIQjvq3tr8dT4dSgmNKNwcuinuHyx9IJv8LA-L6_64iR9mm8Q/exec";
+    
+    const form = document.getElementById('demoForm');
+    const submitBtn = document.getElementById('submitBtn');
+    
+    function showToast(message, bgColor = '#22c55e') {
+        const existingToast = document.querySelector('.toast');
+        if(existingToast) existingToast.remove();
+        
+        const toast = document.createElement('div');
+        toast.className = 'toast';
+        toast.textContent = message;
+        toast.style.background = bgColor;
+        document.body.appendChild(toast);
+        
+        setTimeout(() => {
+            toast.remove();
+        }, 5000);
+    }
+    
+    async function submitToGoogleSheet(formData) {
+        try {
+            const response = await fetch(GOOGLE_SHEET_API_URL, {
+                method: 'POST',
+                mode: 'no-cors', // Changed to no-cors for better compatibility
+                cache: 'no-cache',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            });
+            
+            // For no-cors mode, we assume success if no error
+            return { success: true };
+        } catch (error) {
+            console.error('Submission error:', error);
+            return { success: false, error: error.message };
+        }
+    }
+    
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const name = document.getElementById('fullName').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const company = document.getElementById('companyName').value.trim();
+        const employees = document.getElementById('employees').value;
+        const demoDate = document.getElementById('demoDate').value;
+        const message = document.getElementById('message').value.trim();
+        
+        if(!name || !email || !phone || !company || !employees || !demoDate) {
+            showToast('Please fill all required fields!', '#dc2626');
+            return;
+        }
+        
+        if(!email.includes('@') || !email.includes('.')) {
+            showToast('Please enter a valid email address!', '#dc2626');
+            return;
+        }
+        
+        if(phone.length < 10) {
+            showToast('Please enter a valid phone number (min 10 digits)!', '#dc2626');
+            return;
+        }
+        
+        const formData = {
+            fullName: name,
+            email: email,
+            phone: phone,
+            companyName: company,
+            employees: employees,
+            demoDate: demoDate,
+            message: message || "",
+            timestamp: new Date().toISOString()
+        };
+        
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Submitting...';
+        
+        const result = await submitToGoogleSheet(formData);
+        
+        if (result.success) {
+            showToast('✅ Demo scheduled successfully! Check your Email.', '#22c55e');
+            form.reset();
+            console.log('Form data sent:', formData);
+        } else {
+            showToast('❌ Submission failed. Please try again.', '#dc2626');
+        }
+        
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<i class="fas fa-calendar-check"></i> Schedule Free Demo';
+    });
+    
+    console.log('Form ready. Using API URL:', GOOGLE_SHEET_API_URL);
+
+    function forceAuthorize() {
+  const email = Session.getActiveUser().getEmail();
+  GmailApp.sendEmail(email, "Authorization Test", "If you see this, email is working!");
+  console.log("Authorization successful! Email sent to: " + email);
+}
+</script>
+</body>
+</html>
