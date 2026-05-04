@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Aparaitech | Intelligent Attendance & HRMS Platform</title>
+    <title>Aparaitech | Smart Attendance App with Face Recognition & GPS</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -31,9 +31,9 @@
         .header {
             position: sticky;
             top: 0;
-            background: rgba(255, 255, 255, 0.96);
+            background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(12px);
-            border-bottom: 1px solid #eef2f6;
+            border-bottom: 1px solid #eef2f8;
             z-index: 100;
             padding: 1rem 0;
         }
@@ -47,9 +47,9 @@
         }
 
         .logo {
-            font-size: 1.6rem;
+            font-size: 1.7rem;
             font-weight: 800;
-            background: linear-gradient(135deg, #0a2b4e, #1e6faf);
+            background: linear-gradient(135deg, #0f2b3d, #1e6faf);
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
@@ -71,7 +71,7 @@
 
         .nav-links a {
             text-decoration: none;
-            color: #2c3e50;
+            color: #1f3b4c;
             font-weight: 500;
             transition: 0.2s;
         }
@@ -86,6 +86,7 @@
             border-radius: 40px;
             color: #1e6faf !important;
             font-weight: 600;
+            background: transparent;
         }
 
         .btn-primary {
@@ -95,25 +96,54 @@
             border-radius: 40px;
             font-weight: 600;
             transition: all 0.2s;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
 
         .btn-primary:hover {
             background: #0e5a96;
-            transform: translateY(-1px);
+            transform: translateY(-2px);
         }
 
-        /* Hero */
+        /* Hero section with stats */
+        .hero-stats {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 1.5rem;
+            background: #f8fafd;
+            border-radius: 48px;
+            padding: 2rem 2rem;
+            margin: 2rem 0 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            flex: 1;
+            min-width: 120px;
+        }
+
+        .stat-number {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #1e6faf;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #4a627a;
+        }
+
         .hero {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 3rem;
             align-items: center;
-            padding: 4rem 0 3rem;
+            padding: 2rem 0 2rem;
         }
 
         .hero h1 {
-            font-size: 3rem;
+            font-size: 2.8rem;
             font-weight: 800;
             line-height: 1.2;
             letter-spacing: -0.02em;
@@ -126,301 +156,213 @@
         }
 
         .hero p {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: #4a627a;
-            margin-bottom: 2rem;
-        }
-
-        .hero-badge {
-            display: inline-block;
-            background: #eef4ff;
-            padding: 6px 16px;
-            border-radius: 40px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: #1e6faf;
             margin-bottom: 1.5rem;
         }
 
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-            margin: 1.5rem 0;
-        }
-
-        .feature-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 0.9rem;
-            color: #2c3e50;
-        }
-
-        .feature-item i {
-            color: #1e6faf;
-            font-size: 1rem;
-        }
-
-        .hero-image {
-            background: linear-gradient(145deg, #f0f7ff, #ffffff);
-            border-radius: 32px;
-            padding: 1rem;
+        .phone-mock {
+            background: linear-gradient(145deg, #eef4fc, #ffffff);
+            border-radius: 48px;
+            padding: 2rem;
             text-align: center;
             border: 1px solid #e2edf7;
-            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.05);
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.08);
         }
 
-        .hero-image i {
-            font-size: 8rem;
+        .phone-mock i {
+            font-size: 7rem;
             color: #1e6faf;
-            opacity: 0.8;
+            margin: 0 0.5rem;
         }
 
-        /* Section styles */
+        .badge-group {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .badge-group img {
+            height: 44px;
+        }
+
+        /* feature grid */
         .section-title {
             text-align: center;
             font-size: 2rem;
             font-weight: 700;
             color: #0a2b4e;
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
         }
 
         .section-sub {
             text-align: center;
             color: #5e7a93;
             max-width: 700px;
-            margin: 0 auto 3rem;
+            margin: 0 auto 2.5rem;
         }
 
-        .cards-grid {
+        .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 2rem;
-            margin: 3rem 0;
+            margin: 2.5rem 0;
         }
 
-        .card {
+        .feature-card {
             background: white;
             border-radius: 28px;
-            padding: 1.8rem;
+            padding: 1.6rem;
             border: 1px solid #eef2f8;
             transition: all 0.25s;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
         }
 
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: #cddfef;
-            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.08);
+        .feature-card:hover {
+            transform: translateY(-4px);
+            border-color: #cde0ef;
+            box-shadow: 0 20px 25px -12px rgba(0,0,0,0.08);
         }
 
-        .card i {
+        .feature-card i {
             font-size: 2.2rem;
             color: #1e6faf;
             margin-bottom: 1rem;
         }
 
-        .card h3 {
-            font-size: 1.3rem;
+        .feature-card h3 {
+            font-size: 1.25rem;
             margin-bottom: 0.5rem;
         }
 
-        .card p {
+        .feature-card p {
             color: #5e7a93;
             font-size: 0.9rem;
         }
 
-        /* modules grid (like Zoho) */
-        .modules-grid {
+        .two-column-layout {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 1.5rem;
-            background: #f8fafd;
-            border-radius: 48px;
-            padding: 2.5rem;
-            margin: 2rem 0;
-        }
-
-        .module-item {
-            text-align: center;
-            padding: 1rem;
-        }
-
-        .module-item i {
-            font-size: 2rem;
-            color: #1e6faf;
-            margin-bottom: 0.5rem;
-        }
-
-        .module-item span {
-            font-weight: 500;
-            display: block;
-        }
-
-        /* Trust badges */
-        .trust-section {
-            text-align: center;
-            margin: 4rem 0;
-        }
-
-        .ratings {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            grid-template-columns: 1fr 1fr;
             gap: 2rem;
-            margin: 2rem 0;
+            background: #fbfdff;
+            border-radius: 40px;
+            margin: 3rem 0;
+            align-items: center;
         }
 
-        .rating-card {
-            background: white;
-            padding: 1rem 1.8rem;
-            border-radius: 60px;
-            border: 1px solid #e2edf7;
+        .app-details-list {
+            list-style: none;
+        }
+
+        .app-details-list li {
+            margin-bottom: 1rem;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
+            font-weight: 500;
         }
 
-        .stars {
-            color: #f5b042;
-        }
-
-        /* Pricing */
-        .pricing-toggle {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        .toggle-switch {
-            position: relative;
-            display: inline-block;
-            width: 64px;
-            height: 32px;
-        }
-
-        .toggle-switch input {
-            opacity: 0;
-            width: 0;
-            height: 0;
-        }
-
-        .slider {
-            position: absolute;
-            cursor: pointer;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: #cbdde9;
-            border-radius: 34px;
-            transition: 0.2s;
-        }
-
-        .slider:before {
-            position: absolute;
-            content: "";
-            height: 24px;
+        .app-details-list li i {
+            color: #1e6faf;
             width: 24px;
-            left: 4px;
-            bottom: 4px;
-            background-color: white;
-            border-radius: 50%;
-            transition: 0.2s;
         }
 
-        input:checked + .slider {
-            background-color: #1e6faf;
+        .badge-download {
+            display: inline-flex;
+            gap: 1rem;
+            margin-top: 1rem;
         }
 
-        input:checked + .slider:before {
-            transform: translateX(32px);
+        .testimonial-block {
+            background: #f0f6fe;
+            border-radius: 32px;
+            padding: 2rem;
+            text-align: center;
+            margin: 2.5rem 0;
         }
 
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
+        .faq-section {
             margin: 3rem 0;
         }
 
-        .price-card {
-            background: white;
-            border-radius: 32px;
-            padding: 2rem;
+        .faq-list {
+            background: #ffffff;
+            border-radius: 28px;
             border: 1px solid #eef2f8;
-            position: relative;
+            padding: 2rem;
         }
 
-        .price-card.popular {
-            border: 2px solid #1e6faf;
-            box-shadow: 0 12px 24px -12px rgba(30,111,175,0.2);
-        }
-
-        .price {
-            font-size: 2.8rem;
-            font-weight: 800;
-            color: #0a2b4e;
-        }
-
-        .btn-price {
-            width: 100%;
-            background: #f0f6fe;
-            border: none;
-            padding: 12px;
-            border-radius: 40px;
-            font-weight: 600;
-            color: #1e6faf;
-            margin-top: 1.5rem;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-
-        .btn-price.primary {
-            background: #1e6faf;
-            color: white;
-        }
-
-        /* Signup form */
-        .signup-section {
-            background: #f8fafd;
-            border-radius: 48px;
-            padding: 3rem;
-            margin: 4rem 0;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+        .faq-item {
+            display: flex;
             align-items: center;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid #edf2f6;
         }
 
-        .form-group {
-            margin-bottom: 1.2rem;
+        .faq-item:last-child {
+            border-bottom: none;
         }
 
-        .form-group input, .form-group select {
+        .faq-item i.fa-check-circle {
+            color: #22a65e;
+            font-size: 1.3rem;
+        }
+
+        .faq-item span {
+            font-weight: 500;
+            color: #1f3b4c;
+        }
+
+        /* appointment form (schedule now) */
+        .schedule-card {
+            background: #ffffff;
+            border-radius: 48px;
+            padding: 2.5rem;
+            margin: 3rem 0;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.08);
+            border: 1px solid #eef2f8;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 2.5rem;
+        }
+
+        .schedule-left h2 {
+            font-size: 1.9rem;
+            font-weight: 800;
+        }
+
+        .schedule-left .badge-scale {
+            background: #eef4ff;
+            padding: 6px 16px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1rem;
+            color: #1e6faf;
+        }
+
+        .schedule-form input, .schedule-form select, .schedule-form textarea {
             width: 100%;
             padding: 12px 18px;
             border: 1px solid #dce5ef;
             border-radius: 30px;
             font-family: inherit;
-            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
         }
 
-        .form-row {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .checkbox {
+        .checkbox-appoint {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
+            margin: 1rem 0;
             font-size: 0.85rem;
         }
 
-        .signup-btn {
+        .btn-send {
             background: #1e6faf;
             width: 100%;
             padding: 12px;
@@ -432,29 +374,62 @@
             cursor: pointer;
         }
 
-        .social-signup {
-            text-align: center;
-            margin-top: 1rem;
+        /* footer multi-column */
+        .footer {
+            background: #f8fafd;
+            border-radius: 32px 32px 0 0;
+            padding: 3rem 2rem 2rem;
+            margin-top: 4rem;
         }
 
-        .footer {
-            border-top: 1px solid #e2edf7;
-            padding: 2rem 0;
-            margin-top: 3rem;
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #0a2b4e;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 0.5rem;
+            font-size: 0.85rem;
+        }
+
+        .footer-col a {
+            text-decoration: none;
+            color: #4a627a;
+        }
+
+        .footer-bottom {
             text-align: center;
-            color: #6c86a0;
+            border-top: 1px solid #e2edf7;
+            padding-top: 1.5rem;
             font-size: 0.8rem;
+            color: #6c86a0;
         }
 
         @media (max-width: 768px) {
-            .hero, .signup-section {
+            .hero, .two-column-layout, .schedule-card {
                 grid-template-columns: 1fr;
             }
             .container {
                 padding: 0 1.5rem;
             }
             .hero h1 {
-                font-size: 2.2rem;
+                font-size: 2rem;
+            }
+            .stat-number {
+                font-size: 1.6rem;
             }
         }
     </style>
@@ -463,247 +438,263 @@
 
 <header class="header">
     <div class="container">
-        <div class="logo"><i class="fas fa-cloud-upload-alt"></i> Aparaitech</div>
+        <div class="logo"><i class="fas fa-mobile-alt"></i> Aparaitech</div>
         <div class="nav-links">
             <a href="#features">Features</a>
-            <a href="#modules">Solutions</a>
-            <a href="#pricing">Pricing</a>
-            <a href="#signup" class="btn-outline">Sign in</a>
-            <a href="#signup" class="btn-primary">Start free trial</a>
+            <a href="#app-download">Mobile App</a>
+            <a href="#faq">FAQs</a>
+            <a href="#schedule" class="btn-outline">Book a Demo</a>
+            <a href="#schedule" class="btn-primary">Start Free Trial</a>
         </div>
     </div>
 </header>
 
 <main>
     <div class="container">
-        <!-- Hero -->
+        <!-- Stats row (image style) -->
+        <div class="hero-stats">
+            <div class="stat-item"><div class="stat-number">18+</div><div class="stat-label">Years in Industry</div></div>
+            <div class="stat-item"><div class="stat-number">27K+</div><div class="stat-label">Customers</div></div>
+            <div class="stat-item"><div class="stat-number">500+</div><div class="stat-label">Dedicated Staff</div></div>
+            <div class="stat-item"><div class="stat-number">1M+</div><div class="stat-label">Active Users</div></div>
+        </div>
+
+        <!-- Hero + face recognition / gps -->
         <div class="hero">
             <div>
-                <div class="hero-badge"><i class="fas fa-chart-line"></i> AI-powered HRMS</div>
-                <h1>Attendance management that <span class="highlight">improves productivity</span></h1>
-                <p>Empower your remote and onsite employees with facial recognition, biometric integration, and real‑time attendance tracking — all in one intelligent platform.</p>
-                <div class="feature-grid">
-                    <div class="feature-item"><i class="fas fa-check-circle"></i> Supports facial recognition</div>
-                    <div class="feature-item"><i class="fas fa-check-circle"></i> Integrates with biometric devices</div>
-                    <div class="feature-item"><i class="fas fa-check-circle"></i> Customizable workflows</div>
-                    <div class="feature-item"><i class="fas fa-check-circle"></i> Advanced attendance reports</div>
+                <div class="hero-badge" style="background:#eef4ff; display:inline-block; padding:6px 16px; border-radius:40px; font-size:0.8rem;"><i class="fas fa-chart-line"></i> AI + Face Recognition</div>
+                <h1>Smart Attendance App with <span class="highlight">Face Recognition & GPS</span></h1>
+                <p>Are you still tracking staff attendance with manual punch-ins? Manage employee attendance with our mobile app, integrated with time attendance and payroll software. Our biometric attendance system with face recognition simplifies workforce management for businesses of all sizes.</p>
+                <div class="badge-group">
+                    <i class="fab fa-apple" style="font-size: 2.5rem; color:#1e6faf;"></i>
+                    <i class="fab fa-android" style="font-size: 2.5rem; color:#1e6faf;"></i>
+                    <span style="font-size:0.85rem;">iOS & Android</span>
                 </div>
-                <a href="#signup" class="btn-primary" style="display: inline-block;">Get started free →</a>
-                <p style="margin-top: 1rem; font-size: 0.8rem;">30‑day free trial. No credit card required.</p>
             </div>
-            <div class="hero-image">
-                <i class="fas fa-fingerprint"></i>
-                <i class="fas fa-qrcode" style="font-size: 4rem; margin: 0 1rem;"></i>
-                <i class="fas fa-chart-simple"></i>
-                <p style="margin-top: 1rem;">Real-time dashboard preview</p>
+            <div class="phone-mock">
+                <i class="fas fa-user-check"></i>
+                <i class="fas fa-map-marker-alt" style="font-size:4rem; margin:0 0.5rem;"></i>
+                <i class="fas fa-camera-retro"></i>
+                <p style="margin-top:1rem;">Face recognition + GPS location capture</p>
+                <div class="badge-group">
+                    <span style="background:#000; color:white; padding:6px 12px; border-radius:40px; font-size:0.7rem;">App Store</span>
+                    <span style="background:#000; color:white; padding:6px 12px; border-radius:40px; font-size:0.7rem;">Google Play</span>
+                </div>
             </div>
         </div>
 
-        <!-- Key features grid -->
+        <!-- Key Features of Mobile Attendance App -->
         <div id="features">
-            <h2 class="section-title">Stay Accurate with our Attendance Management System</h2>
-            <p class="section-sub">Automate end-to-end tracking, ensure compliance, and gain clear insights into attendance patterns.</p>
-            <div class="cards-grid">
-                <div class="card"><i class="fas fa-camera"></i><h3>Facial Recognition</h3><p>Contactless attendance via AI face detection. Works on web & mobile.</p></div>
-                <div class="card"><i class="fas fa-microchip"></i><h3>Biometric Integration</h3><p>Seamlessly connect with any biometric device (RFID, fingerprint).</p></div>
-                <div class="card"><i class="fas fa-chart-pie"></i><h3>Real-time Dashboard</h3><p>Live employee check-in status, overtime, and absence analytics.</p></div>
-                <div class="card"><i class="fas fa-file-alt"></i><h3>Custom Reports</h3><p>Export attendance logs, half‑day rules, and holiday calendars in one click.</p></div>
+            <h2 class="section-title">Key Features of Mobile Attendance App</h2>
+            <p class="section-sub">These essentials help you handle attendance with ease.</p>
+            <div class="features-grid">
+                <div class="feature-card"><i class="fas fa-chart-line"></i><h3>Real-Time Tracking</h3><p>Click-in and out anywhere, anytime using mobile.</p></div>
+                <div class="feature-card"><i class="fas fa-face-smile"></i><h3>Face Recognition</h3><p>Accurate attendance verification with built-in face recognition.</p></div>
+                <div class="feature-card"><i class="fas fa-location-dot"></i><h3>GPS Location Captured</h3><p>Verify employees are at designated location when clocking in.</p></div>
+                <div class="feature-card"><i class="fas fa-shield-haltered"></i><h3>Fake GPS Detection</h3><p>Detects fake GPS signals, prevents inaccurate clock-ins.</p></div>
+                <div class="feature-card"><i class="fas fa-wifi"></i><h3>Offline Clocking</h3><p>Records GPS coordinates even without internet access.</p></div>
+                <div class="feature-card"><i class="fas fa-draw-polygon"></i><h3>Geo Fencing</h3><p>Click-in/out only at office or assigned work site within a radius.</p></div>
+                <div class="feature-card"><i class="fas fa-tablet-alt"></i><h3>Kiosk Mode</h3><p>Click-in using a supervisor’s mobile device.</p></div>
+                <div class="feature-card"><i class="fas fa-project-diagram"></i><h3>Project Record</h3><p>Log project details through the app seamlessly.</p></div>
             </div>
         </div>
 
-        <!-- More than attendance (HRMS modules) -->
-        <div id="modules">
-            <h2 class="section-title">Aparaitech is more than an attendance system</h2>
-            <div class="modules-grid">
-                <div class="module-item"><i class="fas fa-database"></i><span>Employee Database</span></div>
-                <div class="module-item"><i class="fas fa-clock"></i><span>Timesheets</span></div>
-                <div class="module-item"><i class="fas fa-chart-line"></i><span>Performance Management</span></div>
-                <div class="module-item"><i class="fas fa-graduation-cap"></i><span>Learning Management</span></div>
-                <div class="module-item"><i class="fas fa-user-plus"></i><span>Employee Onboarding</span></div>
-                <div class="module-item"><i class="fas fa-calendar-week"></i><span>Shift Scheduling</span></div>
-                <div class="module-item"><i class="fas fa-umbrella-beach"></i><span>Leave Tracker</span></div>
-                <div class="module-item"><i class="fas fa-briefcase"></i><span>Case Management</span></div>
-            </div>
-        </div>
-
-        <!-- Trust ratings -->
-        <div class="trust-section">
-            <p style="font-weight: 600;">95% of customers say adapting to Aparaitech was easy</p>
-            <div class="ratings">
-                <div class="rating-card"><span class="stars">★★★★★</span> GetApp 4.8/5</div>
-                <div class="rating-card"><span class="stars">★★★★½</span> Capterra 4.7/5</div>
-                <div class="rating-card"><i class="fas fa-trophy"></i> Leader 2024</div>
-                <div class="rating-card"><i class="fas fa-check-circle"></i> Top-rated Quality</div>
-            </div>
-            <p>Trusted by <strong>30K+ businesses</strong> worldwide</p>
-        </div>
-
-        <!-- Pricing with toggle -->
-        <div id="pricing">
-            <h2 class="section-title">Perfect HR software for every business</h2>
-            <div class="pricing-toggle">
-                <span id="monthlyLabel" style="font-weight: 600;">Monthly</span>
-                <label class="toggle-switch">
-                    <input type="checkbox" id="billingToggle">
-                    <span class="slider"></span>
-                </label>
-                <span id="annualLabel" style="font-weight: 600;">Annual <span style="background:#e0f0ea; padding:2px 8px; border-radius:30px;">Save 20%</span></span>
-            </div>
-            <div class="pricing-grid" id="pricingGrid">
-                <!-- Essential -->
-                <div class="price-card">
-                    <h3>Essential HR</h3>
-                    <div class="price" id="essentialPrice">₹1,299</div>
-                    <div id="essentialPeriod" style="color:#6c86a0;">/month</div>
-                    <ul style="margin: 1.5rem 0; list-style: none;">
-                        <li><i class="fas fa-check" style="color:#1e6faf;"></i> Up to 100 employees</li>
-                        <li><i class="fas fa-check"></i> Core attendance & reports</li>
-                        <li><i class="fas fa-check"></i> Email support</li>
-                    </ul>
-                    <button class="btn-price subscribe-btn" data-plan="Essential">Choose Plan</button>
-                </div>
-                <!-- Professional (Most popular) -->
-                <div class="price-card popular">
-                    <h3>Professional <span style="font-size:0.8rem; background:#1e6faf10; padding:2px 8px; border-radius:20px;">🔥 Most popular</span></h3>
-                    <div class="price" id="proPrice">₹2,799</div>
-                    <div id="proPeriod">/month</div>
-                    <ul style="margin: 1.5rem 0; list-style: none;">
-                        <li><i class="fas fa-check"></i> Up to 500 employees</li>
-                        <li><i class="fas fa-check"></i> Biometric & facial recognition</li>
-                        <li><i class="fas fa-check"></i> API & priority support</li>
-                        <li><i class="fas fa-check"></i> Performance & LMS modules</li>
-                    </ul>
-                    <button class="btn-price primary subscribe-btn" data-plan="Professional">Start 30-day trial</button>
-                </div>
-                <!-- Enterprise -->
-                <div class="price-card">
-                    <h3>Enterprise</h3>
-                    <div class="price" id="enterprisePrice">₹5,499</div>
-                    <div id="enterprisePeriod">/month</div>
-                    <ul style="margin: 1.5rem 0; list-style: none;">
-                        <li><i class="fas fa-check"></i> Unlimited employees</li>
-                        <li><i class="fas fa-check"></i> SSO + On‑premise</li>
-                        <li><i class="fas fa-check"></i> Dedicated account manager</li>
-                        <li><i class="fas fa-check"></i> 24/7 concierge support</li>
-                    </ul>
-                    <button class="btn-price subscribe-btn" data-plan="Enterprise">Contact sales</button>
-                </div>
-            </div>
-            <p class="section-sub" style="font-size:0.9rem;">*All plans include a 30‑day free trial. Cancel anytime.</p>
-        </div>
-
-        <!-- Free trial signup form (like Zoho) -->
-        <div id="signup" class="signup-section">
+        <!-- Additional: iOS & Android, anti-spoofing, sync portal -->
+        <div class="two-column-layout" id="app-download">
             <div>
-                <h2 style="font-size: 1.8rem;">Start your <span style="color:#1e6faf;">free trial</span></h2>
-                <p>No credit card required. 30 days full access to Aparaitech HRMS.</p>
-                <div class="trust-section" style="margin-top: 1rem; text-align: left;">
-                    <p><i class="fas fa-shield-alt"></i> Enterprise-grade security & GDPR ready</p>
-                    <p><i class="fas fa-headset"></i> 24/7 priority support</p>
+                <h3 style="font-size: 1.6rem; margin-bottom: 1rem;">iOS & Android App + HR Portal Sync</h3>
+                <ul class="app-details-list">
+                    <li><i class="fas fa-mobile-alt"></i> Tablet app for office use – Available on iOS & Android</li>
+                    <li><i class="fas fa-language"></i> Available in English & Hindi</li>
+                    <li><i class="fas fa-ban"></i> No need for costly fingerprint/face scanners</li>
+                    <li><i class="fas fa-tools"></i> Easy installation, no technical expertise required</li>
+                    <li><i class="fas fa-cloud-upload-alt"></i> Sync with our cloud HR portal – real-time attendance</li>
+                    <li><i class="fas fa-video"></i> Anti-Spoofing Technology – prevents fake click-ins via photos/videos</li>
+                </ul>
+                <div class="badge-download">
+                    <span class="btn-primary" style="display:inline-block; background:#000; padding: 8px 20px;"><i class="fab fa-apple"></i> App Store</span>
+                    <span class="btn-primary" style="display:inline-block; background:#000; padding: 8px 20px;"><i class="fab fa-google-play"></i> Google Play</span>
                 </div>
             </div>
-            <form id="signupForm">
-                <div class="form-group"><input type="text" id="fullName" placeholder="Full Name *" required></div>
-                <div class="form-group"><input type="email" id="email" placeholder="Email Address *" required></div>
-                <div class="form-group"><input type="password" id="password" placeholder="Password *" required></div>
-                <div class="form-row">
-                    <select id="countryCode" style="width: 100px;"><option>+91</option><option>+1</option><option>+44</option></select>
-                    <input type="tel" id="phone" placeholder="Phone Number *" style="flex:1;" required>
+            <div style="background: #eef4fc; border-radius: 32px; padding: 2rem; text-align:center;">
+                <i class="fas fa-chart-simple" style="font-size: 4rem; color:#1e6faf;"></i>
+                <i class="fas fa-fingerprint" style="font-size: 4rem; margin:0 0.5rem;"></i>
+                <p><strong>Check Attendance Logs at Anywhere, Anytime</strong><br>Employees can easily review attendance logs, helping with effective planning.</p>
+                <div style="margin-top:1rem;"><i class="fas fa-star"></i> Kruve team</div>
+            </div>
+        </div>
+
+        <!-- A Complete Mobile App to Manage Attendance + bullet list -->
+        <div style="background: #fefcf5; border-radius: 48px; padding: 2rem; margin: 2rem 0;">
+            <div style="display: flex; flex-wrap: wrap; gap: 2rem; align-items:center; justify-content: space-between;">
+                <div>
+                    <h2 style="font-size: 1.8rem;">A Complete Mobile App to Manage Attendance</h2>
+                    <ul style="margin-top: 1rem; list-style: none;">
+                        <li><i class="fas fa-check-circle" style="color:#1e6faf;"></i> Tablet app for office use</li>
+                        <li><i class="fas fa-check-circle" style="color:#1e6faf;"></i> Available on iOS and Android</li>
+                        <li><i class="fas fa-check-circle" style="color:#1e6faf;"></i> Available in English & Hindi</li>
+                        <li><i class="fas fa-check-circle" style="color:#1e6faf;"></i> No need for costly fingerprint/face scanners</li>
+                        <li><i class="fas fa-check-circle" style="color:#1e6faf;"></i> No spare parts worries & easy installation</li>
+                        <li><i class="fas fa-check-circle" style="color:#1e6faf;"></i> No technical required for repairs</li>
+                    </ul>
                 </div>
-                <div class="checkbox"><input type="checkbox" id="terms" required> <span>I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></span></div>
-                <button type="submit" class="signup-btn">FREE SIGN UP →</button>
-                <div class="social-signup">or sign in using <i class="fab fa-google"></i> Google or <i class="fab fa-linkedin"></i> LinkedIn</div>
-            </form>
+                <div><i class="fas fa-download" style="font-size: 5rem; color:#1e6faf;"></i><br><span>Download Now</span></div>
+            </div>
+        </div>
+
+        <!-- Best Attendance App for Employees -->
+        <div class="testimonial-block">
+            <h3>📱 Best Attendance App for Employees in India</h3>
+            <p>For businesses of any size, a paperless attendance system is key. Our Mobile Attendance App offers a smooth way to track and manage attendance for both employers and employees.</p>
+        </div>
+
+        <!-- FAQ Section with ticks -->
+        <div id="faq" class="faq-section">
+            <h2 class="section-title">Mobile Attendance App FAQs</h2>
+            <div class="faq-list">
+                <div class="faq-item"><i class="fas fa-check-circle"></i> <span>Is it possible for the mobile attendance app to detect my employee’s location?</span></div>
+                <div class="faq-item"><i class="fas fa-check-circle"></i> <span>Can employees clock-out using the mobile attendance app?</span></div>
+                <div class="faq-item"><i class="fas fa-check-circle"></i> <span>Do employees have to register their faces before using the mobile attendance app?</span></div>
+                <div class="faq-item"><i class="fas fa-check-circle"></i> <span>Does the app handle breaks and overtime?</span></div>
+                <div class="faq-item"><i class="fas fa-check-circle"></i> <span>Is there any way to track attendance for remote or field employees using the app?</span></div>
+                <div class="faq-item"><i class="fas fa-check-circle"></i> <span>Can employees use the app from both Android and iOS devices?</span></div>
+            </div>
+        </div>
+
+        <!-- Schedule Now appointment form (fields exactly like original image request) -->
+        <div id="schedule" class="schedule-card">
+            <div class="schedule-left">
+                <div class="badge-scale"><i class="fas fa-calendar-check"></i> Schedule Now</div>
+                <h2>Our system is built for scaling companies with 100+ employees</h2>
+                <p>Get a tailored walkthrough of Aparaitech's intelligent attendance + HRMS suite. From face recognition to payroll integration – we handle it all.</p>
+                <ul style="margin-top: 1.5rem; list-style: none;">
+                    <li><i class="fas fa-check-circle"></i> Real-time analytics & reports</li>
+                    <li><i class="fas fa-fingerprint"></i> Biometric + face recognition</li>
+                    <li><i class="fas fa-headset"></i> 24/7 expert support</li>
+                </ul>
+            </div>
+            <div class="schedule-form">
+                <form id="appointmentForm">
+                    <input type="text" id="companyName" placeholder="Company Name *" required>
+                    <input type="text" id="contactName" placeholder="Contact Name *" required>
+                    <input type="tel" id="contactNumber" placeholder="Contact Number *" required>
+                    <input type="email" id="contactEmail" placeholder="Contact Email *" required>
+                    <select id="employeeCount" required>
+                        <option value="" disabled selected>Select Number of employees</option>
+                        <option value="1-100">1-100 employees</option>
+                        <option value="101-500">101-500 employees</option>
+                        <option value="501-1000">501-1000 employees</option>
+                        <option value="1000+">1000+ employees</option>
+                    </select>
+                    <textarea id="message" rows="3" placeholder="Message *" required></textarea>
+                    <div class="checkbox-appoint">
+                        <input type="checkbox" id="termsAppoint" required>
+                        <label>I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</label>
+                    </div>
+                    <button type="submit" class="btn-send"><i class="fas fa-paper-plane"></i> Send Request</button>
+                </form>
+            </div>
         </div>
     </div>
 </main>
 
+<!-- Footer exactly from DigiSME image style -->
 <footer class="footer">
     <div class="container">
-        <p>© 2025 Aparaitech Software Pvt Ltd. All rights reserved. | <a href="#">Terms of Service</a> | <a href="#">Privacy Policy</a></p>
-        <p style="margin-top: 0.5rem;">Trusted by 30K+ businesses worldwide</p>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Our Products</h4>
+                <ul>
+                    <li>HR Software</li><li>Mobile Attendance App</li><li>Time Attendance Software</li><li>Payroll Software</li>
+                    <li>Leave Management</li><li>Claims Management</li><li>Performance Appraisal</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Our Company</h4>
+                <ul><li>About Us</li><li>Why Choose Us?</li><li>Awards & Recognitions</li><li>Partners</li><li>Careers</li><li>Contact Us</li><li>Pricing</li></ul>
+            </div>
+            <div class="footer-col">
+                <h4>Clients & Stories</h4>
+                <ul><li>Clients</li><li>Success Stories</li></ul>
+                <h4 style="margin-top:1rem;">Resources</h4>
+                <ul><li>FAQ</li><li>Blog</li><li>Glossary</li><li>Events</li><li>Workshop</li></ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li><i class="fas fa-phone-alt"></i> +91 9500 537 347</li>
+                    <li><i class="fas fa-envelope"></i> sales@aparaitech.com</li>
+                    <li><i class="fab fa-linkedin"></i> LinkedIn</li>
+                    <li><i class="fab fa-facebook"></i> Facebook</li>
+                </ul>
+                <p style="margin-top: 0.5rem; font-size:0.8rem;">4th Floor, Vishwani Melaram Tower, Karappakkam (OMR), Chennai, India</p>
+                <p style="margin-top:0.5rem;"><i class="fas fa-download"></i> Available in English & Hindi</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Aparaitech Software Pvt Ltd. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a> | Security White Paper</p>
+            <p style="margin-top:0.5rem;">Trusted by 30K+ businesses worldwide</p>
+        </div>
     </div>
 </footer>
 
 <script>
-    // Pricing toggle
-    const toggle = document.getElementById('billingToggle');
-    const monthlyLabel = document.getElementById('monthlyLabel');
-    const annualLabel = document.getElementById('annualLabel');
-    const essentialPrice = document.getElementById('essentialPrice');
-    const essentialPeriod = document.getElementById('essentialPeriod');
-    const proPrice = document.getElementById('proPrice');
-    const proPeriod = document.getElementById('proPeriod');
-    const enterprisePrice = document.getElementById('enterprisePrice');
-    const enterprisePeriod = document.getElementById('enterprisePeriod');
-
-    function updatePrices(isAnnual) {
-        if(isAnnual) {
-            essentialPrice.innerText = '₹12,490';
-            essentialPeriod.innerText = '/year (billed annually)';
-            proPrice.innerText = '₹26,990';
-            proPeriod.innerText = '/year (billed annually)';
-            enterprisePrice.innerText = '₹52,990';
-            enterprisePeriod.innerText = '/year (billed annually)';
-            monthlyLabel.style.opacity = '0.6';
-            annualLabel.style.opacity = '1';
-        } else {
-            essentialPrice.innerText = '₹1,299';
-            essentialPeriod.innerText = '/month';
-            proPrice.innerText = '₹2,799';
-            proPeriod.innerText = '/month';
-            enterprisePrice.innerText = '₹5,499';
-            enterprisePeriod.innerText = '/month';
-            monthlyLabel.style.opacity = '1';
-            annualLabel.style.opacity = '0.6';
-        }
-    }
-
-    toggle.addEventListener('change', (e) => {
-        updatePrices(e.target.checked);
-    });
-    updatePrices(false);
-
-    // Subscribe buttons toast
-    function showToast(msg) {
+    // toast helper
+    function showToast(msg, isError = false) {
         let toast = document.createElement('div');
         toast.innerText = msg;
         toast.style.position = 'fixed';
-        toast.style.bottom = '20px';
-        toast.style.right = '20px';
-        toast.style.background = '#1e2a3a';
-        toast.style.color = 'white';
+        toast.style.bottom = '25px';
+        toast.style.right = '25px';
+        toast.style.background = isError ? '#d32f2f' : '#1e2a3a';
+        toast.style.color = '#fff';
         toast.style.padding = '12px 24px';
         toast.style.borderRadius = '60px';
         toast.style.zIndex = '999';
+        toast.style.fontWeight = '500';
+        toast.style.boxShadow = '0 8px 20px rgba(0,0,0,0.1)';
         document.body.appendChild(toast);
-        setTimeout(() => toast.remove(), 3000);
+        setTimeout(() => toast.remove(), 3500);
     }
 
-    document.querySelectorAll('.subscribe-btn').forEach(btn => {
-        btn.addEventListener('click', (e) => {
+    // Appointment form handler
+    const appointForm = document.getElementById('appointmentForm');
+    if(appointForm) {
+        appointForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            const plan = btn.getAttribute('data-plan');
-            const isAnnual = toggle.checked;
-            showToast(`✅ You selected ${plan} (${isAnnual ? 'Annual' : 'Monthly'} plan). Our team will contact you to activate your free trial.`);
-        });
-    });
+            const company = document.getElementById('companyName').value.trim();
+            const cname = document.getElementById('contactName').value.trim();
+            const cnum = document.getElementById('contactNumber').value.trim();
+            const email = document.getElementById('contactEmail').value.trim();
+            const emp = document.getElementById('employeeCount').value;
+            const msg = document.getElementById('message').value.trim();
+            const terms = document.getElementById('termsAppoint').checked;
 
-    // Signup form handling
-    const signupForm = document.getElementById('signupForm');
-    signupForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const name = document.getElementById('fullName').value;
-        const email = document.getElementById('email').value;
-        const password = document.getElementById('password').value;
-        const phone = document.getElementById('phone').value;
-        const terms = document.getElementById('terms').checked;
-        if(!name || !email || !password || !phone || !terms) {
-            showToast('Please fill all fields and accept terms.', true);
-            return;
-        }
-        showToast('🎉 Free trial started! Check your email for onboarding details.', false);
-        signupForm.reset();
+            if(!company || !cname || !cnum || !email || !emp || !msg || !terms) {
+                showToast('Please fill all fields and accept Terms & Privacy Policy.', true);
+                return;
+            }
+            if(!email.includes('@')) {
+                showToast('Enter a valid email address.', true);
+                return;
+            }
+            showToast(`✅ Thank you ${cname}! Your demo request for ${company} has been sent. Our team will contact you within 24h.`, false);
+            appointForm.reset();
+            document.getElementById('employeeCount').value = '';
+        });
+    }
+
+    // smooth anchor and demo button interactions
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            if(targetId === "#" || targetId === "") return;
+            const targetElement = document.querySelector(targetId);
+            if(targetElement) {
+                e.preventDefault();
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
     });
 </script>
 </body>
