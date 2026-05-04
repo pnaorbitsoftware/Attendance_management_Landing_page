@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Aparaitech Software | Book a Demo - Smart Attendance & HRMS Platform</title>
+    <title>Aparaitech | Intelligent Attendance & HRMS Platform</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -14,60 +14,31 @@
         }
 
         body {
-            font-family: 'Inter', system-ui, sans-serif;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
-            min-height: 100vh;
-            color: #ffffff;
-            overflow-x: hidden;
+            font-family: 'Inter', sans-serif;
+            background: #ffffff;
+            color: #1a2c3e;
+            line-height: 1.5;
+            scroll-behavior: smooth;
         }
 
-        /* Animated Background */
-        .bg-animation {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            overflow: hidden;
-        }
-
-        .bg-animation .circle {
-            position: absolute;
-            border-radius: 50%;
-            background: linear-gradient(135deg, rgba(30,90,122,0.15), rgba(21,74,100,0.08));
-            animation: float 20s infinite ease-in-out;
-        }
-
-        .circle-1 { width: 300px; height: 300px; top: -100px; left: -100px; animation-delay: 0s; }
-        .circle-2 { width: 500px; height: 500px; bottom: -200px; right: -150px; animation-delay: 5s; }
-        .circle-3 { width: 200px; height: 200px; top: 40%; left: 70%; animation-delay: 2s; }
-        .circle-4 { width: 400px; height: 400px; bottom: 20%; left: -100px; animation-delay: 10s; }
-        .circle-5 { width: 150px; height: 150px; top: 60%; right: 10%; animation-delay: 7s; }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-30px) rotate(5deg); }
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
         }
 
         /* Header */
         .header {
-            position: fixed;
+            position: sticky;
             top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            background: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid #eef2f6;
+            z-index: 100;
             padding: 1rem 0;
-            transition: all 0.3s ease;
         }
 
-        .nav-container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 2rem;
+        .header .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -76,765 +47,664 @@
         }
 
         .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             font-weight: 800;
-            background: linear-gradient(135deg, #60a5fa, #22d3ee);
+            background: linear-gradient(135deg, #0a2b4e, #1e6faf);
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
+            letter-spacing: -0.5px;
         }
 
         .logo i {
-            font-size: 2rem;
-            color: #22d3ee;
+            color: #1e6faf;
             background: none;
+            margin-right: 8px;
         }
 
         .nav-links {
             display: flex;
             gap: 2rem;
             align-items: center;
+            flex-wrap: wrap;
         }
 
         .nav-links a {
-            color: #cbd5e1;
             text-decoration: none;
+            color: #2c3e50;
             font-weight: 500;
-            transition: 0.3s;
-            font-size: 0.9rem;
+            transition: 0.2s;
         }
 
         .nav-links a:hover {
-            color: #22d3ee;
+            color: #1e6faf;
         }
 
-        .demo-btn-nav {
-            background: linear-gradient(135deg, #22c55e, #16a34a);
-            padding: 8px 24px;
+        .btn-outline {
+            border: 1px solid #1e6faf;
+            padding: 8px 20px;
             border-radius: 40px;
-            color: white !important;
+            color: #1e6faf !important;
             font-weight: 600;
         }
 
-        .demo-btn-nav:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(34,197,94,0.3);
+        .btn-primary {
+            background: #1e6faf;
+            color: white !important;
+            padding: 8px 24px;
+            border-radius: 40px;
+            font-weight: 600;
+            transition: all 0.2s;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
         }
 
-        /* Main Container */
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 7rem 2rem 4rem;
+        .btn-primary:hover {
+            background: #0e5a96;
+            transform: translateY(-1px);
         }
 
-        /* Hero Section */
+        /* Hero */
         .hero {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            gap: 3rem;
             align-items: center;
-            margin-bottom: 5rem;
-            animation: fadeInUp 0.8s ease;
+            padding: 4rem 0 3rem;
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero-content h1 {
-            font-size: 3.2rem;
+        .hero h1 {
+            font-size: 3rem;
             font-weight: 800;
             line-height: 1.2;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, #ffffff, #94a3b8);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
+            letter-spacing: -0.02em;
+            color: #0a2b4e;
+            margin-bottom: 1rem;
         }
 
-        .hero-content .highlight {
-            background: linear-gradient(135deg, #22d3ee, #60a5fa);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
+        .hero .highlight {
+            color: #1e6faf;
         }
 
-        .hero-content p {
+        .hero p {
             font-size: 1.1rem;
-            color: #94a3b8;
-            line-height: 1.6;
+            color: #4a627a;
             margin-bottom: 2rem;
         }
 
-        .features-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .feature-tag {
-            background: rgba(34, 197, 94, 0.1);
-            border: 1px solid rgba(34, 197, 94, 0.3);
+        .hero-badge {
+            display: inline-block;
+            background: #eef4ff;
             padding: 6px 16px;
             border-radius: 40px;
             font-size: 0.85rem;
-            color: #22c55e;
+            font-weight: 500;
+            color: #1e6faf;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            color: #2c3e50;
+        }
+
+        .feature-item i {
+            color: #1e6faf;
+            font-size: 1rem;
         }
 
         .hero-image {
-            position: relative;
-            animation: floatImage 4s ease-in-out infinite;
-        }
-
-        @keyframes floatImage {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-
-        .hero-image img {
-            width: 100%;
-            max-width: 500px;
+            background: linear-gradient(145deg, #f0f7ff, #ffffff);
             border-radius: 32px;
-            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
-        }
-
-        /* Stats Section */
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            margin-bottom: 5rem;
+            padding: 1rem;
             text-align: center;
-            animation: fadeInUp 0.8s ease 0.2s backwards;
+            border: 1px solid #e2edf7;
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.05);
         }
 
-        .stat-item {
-            background: rgba(255,255,255,0.05);
-            backdrop-filter: blur(10px);
-            border-radius: 28px;
-            padding: 1.5rem;
-            border: 1px solid rgba(255,255,255,0.1);
-            transition: 0.3s;
+        .hero-image i {
+            font-size: 8rem;
+            color: #1e6faf;
+            opacity: 0.8;
         }
 
-        .stat-item:hover {
-            transform: translateY(-5px);
-            background: rgba(255,255,255,0.08);
-            border-color: rgba(34,211,238,0.3);
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: #22d3ee;
-        }
-
-        .stat-label {
-            font-size: 0.85rem;
-            color: #94a3b8;
-            margin-top: 0.5rem;
-        }
-
-        /* Form Section */
-        .form-section {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            background: rgba(255,255,255,0.03);
-            backdrop-filter: blur(10px);
-            border-radius: 48px;
-            padding: 3rem;
-            border: 1px solid rgba(255,255,255,0.1);
-            margin-bottom: 4rem;
-            animation: fadeInUp 0.8s ease 0.4s backwards;
-        }
-
-        .form-info h2 {
+        /* Section styles */
+        .section-title {
+            text-align: center;
             font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .form-info p {
-            color: #94a3b8;
-            line-height: 1.6;
-            margin-bottom: 2rem;
-        }
-
-        .benefit-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        .benefit-item i {
-            width: 32px;
-            height: 32px;
-            background: rgba(34,197,94,0.15);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #22c55e;
-        }
-
-        .booking-form {
-            display: flex;
-            flex-direction: column;
-            gap: 1.2rem;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 14px 18px;
-            background: rgba(255,255,255,0.08);
-            border: 1px solid rgba(255,255,255,0.15);
-            border-radius: 20px;
-            font-size: 1rem;
-            color: white;
-            font-family: inherit;
-            transition: 0.3s;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #22d3ee;
-            background: rgba(255,255,255,0.12);
-        }
-
-        .form-group input::placeholder,
-        .form-group textarea::placeholder {
-            color: #64748b;
-        }
-
-        .form-group select option {
-            background: #1e293b;
-        }
-
-        .submit-btn {
-            background: linear-gradient(135deg, #22c55e, #16a34a);
-            border: none;
-            padding: 14px;
-            border-radius: 40px;
-            font-size: 1rem;
             font-weight: 700;
-            color: white;
-            cursor: pointer;
-            transition: 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
+            color: #0a2b4e;
+            margin-bottom: 0.5rem;
         }
 
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(34,197,94,0.3);
-        }
-
-        .submit-btn:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        /* Features Grid */
-        .showcase {
+        .section-sub {
             text-align: center;
-            margin-bottom: 4rem;
-            animation: fadeInUp 0.8s ease 0.6s backwards;
+            color: #5e7a93;
+            max-width: 700px;
+            margin: 0 auto 3rem;
         }
 
-        .showcase h2 {
-            font-size: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .features-grid {
+        .cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
+            margin: 3rem 0;
         }
 
-        .feature-card {
-            background: rgba(255,255,255,0.05);
-            backdrop-filter: blur(10px);
+        .card {
+            background: white;
             border-radius: 28px;
-            padding: 2rem;
-            text-align: center;
-            border: 1px solid rgba(255,255,255,0.1);
-            transition: 0.3s;
+            padding: 1.8rem;
+            border: 1px solid #eef2f8;
+            transition: all 0.25s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
         }
 
-        .feature-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(34,211,238,0.3);
-            background: rgba(255,255,255,0.08);
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #cddfef;
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.08);
         }
 
-        .feature-card i {
-            font-size: 3rem;
-            color: #22d3ee;
+        .card i {
+            font-size: 2.2rem;
+            color: #1e6faf;
             margin-bottom: 1rem;
         }
 
-        .feature-card h3 {
+        .card h3 {
             font-size: 1.3rem;
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.5rem;
         }
 
-        .feature-card p {
-            color: #94a3b8;
-            line-height: 1.5;
+        .card p {
+            color: #5e7a93;
+            font-size: 0.9rem;
         }
 
-        /* Footer */
-        .footer {
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(20px);
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding: 3rem 2rem 2rem;
-            margin-top: 3rem;
-        }
-
-        .footer-container {
-            max-width: 1280px;
-            margin: 0 auto;
+        /* modules grid (like Zoho) */
+        .modules-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+            background: #f8fafd;
+            border-radius: 48px;
+            padding: 2.5rem;
+            margin: 2rem 0;
         }
 
-        .footer-logo .logo {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
+        .module-item {
+            text-align: center;
+            padding: 1rem;
         }
 
-        .footer-logo p {
-            color: #94a3b8;
-            font-size: 0.85rem;
-            line-height: 1.6;
+        .module-item i {
+            font-size: 2rem;
+            color: #1e6faf;
+            margin-bottom: 0.5rem;
         }
 
-        .footer-links h4 {
-            font-size: 1rem;
-            margin-bottom: 1rem;
+        .module-item span {
+            font-weight: 500;
+            display: block;
+        }
+
+        /* Trust badges */
+        .trust-section {
+            text-align: center;
+            margin: 4rem 0;
+        }
+
+        .ratings {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .rating-card {
+            background: white;
+            padding: 1rem 1.8rem;
+            border-radius: 60px;
+            border: 1px solid #e2edf7;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .stars {
+            color: #f5b042;
+        }
+
+        /* Pricing */
+        .pricing-toggle {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 64px;
+            height: 32px;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #cbdde9;
+            border-radius: 34px;
+            transition: 0.2s;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 24px;
+            width: 24px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            border-radius: 50%;
+            transition: 0.2s;
+        }
+
+        input:checked + .slider {
+            background-color: #1e6faf;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(32px);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .price-card {
+            background: white;
+            border-radius: 32px;
+            padding: 2rem;
+            border: 1px solid #eef2f8;
+            position: relative;
+        }
+
+        .price-card.popular {
+            border: 2px solid #1e6faf;
+            box-shadow: 0 12px 24px -12px rgba(30,111,175,0.2);
+        }
+
+        .price {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #0a2b4e;
+        }
+
+        .btn-price {
+            width: 100%;
+            background: #f0f6fe;
+            border: none;
+            padding: 12px;
+            border-radius: 40px;
+            font-weight: 600;
+            color: #1e6faf;
+            margin-top: 1.5rem;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .btn-price.primary {
+            background: #1e6faf;
             color: white;
         }
 
-        .footer-links a {
-            display: block;
-            color: #94a3b8;
-            text-decoration: none;
-            margin-bottom: 0.6rem;
+        /* Signup form */
+        .signup-section {
+            background: #f8fafd;
+            border-radius: 48px;
+            padding: 3rem;
+            margin: 4rem 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px 18px;
+            border: 1px solid #dce5ef;
+            border-radius: 30px;
+            font-family: inherit;
+            font-size: 0.95rem;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .checkbox {
+            display: flex;
+            align-items: center;
+            gap: 8px;
             font-size: 0.85rem;
-            transition: 0.3s;
         }
 
-        .footer-links a:hover {
-            color: #22d3ee;
+        .signup-btn {
+            background: #1e6faf;
+            width: 100%;
+            padding: 12px;
+            border-radius: 40px;
+            color: white;
+            font-weight: 700;
+            border: none;
+            font-size: 1rem;
+            cursor: pointer;
         }
 
-        .footer-bottom {
+        .social-signup {
             text-align: center;
-            padding-top: 2rem;
-            margin-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: #64748b;
+            margin-top: 1rem;
+        }
+
+        .footer {
+            border-top: 1px solid #e2edf7;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            text-align: center;
+            color: #6c86a0;
             font-size: 0.8rem;
         }
 
-        /* Toast Message */
-        .toast {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #22c55e;
-            color: white;
-            padding: 12px 24px;
-            border-radius: 60px;
-            font-weight: 500;
-            z-index: 1100;
-            animation: slideIn 0.3s ease;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            max-width: 350px;
-        }
-
-        .toast.error {
-            background: #dc2626;
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateX(100px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @media (max-width: 968px) {
-            .hero, .form-section {
+        @media (max-width: 768px) {
+            .hero, .signup-section {
                 grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            .hero-content h1 {
-                font-size: 2.2rem;
-            }
-            .stats {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .nav-container {
-                flex-direction: column;
             }
             .container {
-                padding-top: 8rem;
+                padding: 0 1.5rem;
             }
-        }
-
-        @media (max-width: 568px) {
-            .stats {
-                grid-template-columns: 1fr;
-            }
-            .form-section {
-                padding: 1.5rem;
+            .hero h1 {
+                font-size: 2.2rem;
             }
         }
     </style>
 </head>
 <body>
 
-<div class="bg-animation">
-    <div class="circle circle-1"></div>
-    <div class="circle circle-2"></div>
-    <div class="circle circle-3"></div>
-    <div class="circle circle-4"></div>
-    <div class="circle circle-5"></div>
-</div>
-
-<!-- Header -->
 <header class="header">
-    <div class="nav-container">
-        <div class="logo">
-            <i class="fas fa-chart-line"></i>
-            <span>APARAITECH SOFTWARE</span>
-        </div>
+    <div class="container">
+        <div class="logo"><i class="fas fa-cloud-upload-alt"></i> Aparaitech</div>
         <div class="nav-links">
-            <a href="#home">Home</a>
             <a href="#features">Features</a>
-            <a href="#demo">Book Demo</a>
-            <a href="#contact">Contact</a>
-            <a href="#demo" class="demo-btn-nav">Book a Demo →</a>
+            <a href="#modules">Solutions</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#signup" class="btn-outline">Sign in</a>
+            <a href="#signup" class="btn-primary">Start free trial</a>
         </div>
     </div>
 </header>
 
-<div class="container" id="home">
-    <!-- Hero Section -->
-    <div class="hero">
-        <div class="hero-content">
-            <h1>
-                Smart Attendance &<br>
-                <span class="highlight">HRMS Platform</span>
-            </h1>
-            <p>Transform your workforce management with AI-powered attendance tracking, QR check-ins, real-time analytics, and automated reporting. Trusted by 500+ enterprises.</p>
-            <div class="features-list">
-                <span class="feature-tag">✓ QR Code Attendance</span>
-                <span class="feature-tag">✓ Half/Quarter Day Auto</span>
-                <span class="feature-tag">✓ Performance Dashboard</span>
-                <span class="feature-tag">✓ Excel Export</span>
-                <span class="feature-tag">✓ Holiday Management</span>
+<main>
+    <div class="container">
+        <!-- Hero -->
+        <div class="hero">
+            <div>
+                <div class="hero-badge"><i class="fas fa-chart-line"></i> AI-powered HRMS</div>
+                <h1>Attendance management that <span class="highlight">improves productivity</span></h1>
+                <p>Empower your remote and onsite employees with facial recognition, biometric integration, and real‑time attendance tracking — all in one intelligent platform.</p>
+                <div class="feature-grid">
+                    <div class="feature-item"><i class="fas fa-check-circle"></i> Supports facial recognition</div>
+                    <div class="feature-item"><i class="fas fa-check-circle"></i> Integrates with biometric devices</div>
+                    <div class="feature-item"><i class="fas fa-check-circle"></i> Customizable workflows</div>
+                    <div class="feature-item"><i class="fas fa-check-circle"></i> Advanced attendance reports</div>
+                </div>
+                <a href="#signup" class="btn-primary" style="display: inline-block;">Get started free →</a>
+                <p style="margin-top: 1rem; font-size: 0.8rem;">30‑day free trial. No credit card required.</p>
             </div>
-        </div>
-        <div class="hero-image">
-            <img src="C:\Users\Shreya\Downloads\Screenshot 2026-04-23 215442.jpg" alt="Dashboard Preview">
-        </div>
-    </div>
-
-    <!-- Stats -->
-    <div class="stats">
-        <div class="stat-item">
-            <div class="stat-number">500+</div>
-            <div class="stat-label">Active Companies</div>
-        </div>
-        <div class="stat-item">
-            <div class="stat-number">50K+</div>
-            <div class="stat-label">Daily Users</div>
-        </div>
-        <div class="stat-item">
-            <div class="stat-number">99.9%</div>
-            <div class="stat-label">Uptime</div>
-        </div>
-        <div class="stat-item">
-            <div class="stat-number">24/7</div>
-            <div class="stat-label">Support</div>
-        </div>
-    </div>
-
-    <!-- Booking Form Section -->
-    <div class="form-section" id="demo">
-        <div class="form-info">
-            <h2>📅 Book a <span style="color:#22d3ee;">Live Demo</span></h2>
-            <p>See how Aparaitech HRMS can transform your attendance management. Our product experts will walk you through:</p>
-            <div class="benefit-item">
-                <i class="fas fa-check"></i>
-                <span>QR Code based check-in/out</span>
-            </div>
-            <div class="benefit-item">
-                <i class="fas fa-check"></i>
-                <span>Auto half-day & quarter-day calculation</span>
-            </div>
-            <div class="benefit-item">
-                <i class="fas fa-check"></i>
-                <span>Real-time admin dashboard & reports</span>
-            </div>
-            <div class="benefit-item">
-                <i class="fas fa-check"></i>
-                <span>Employee performance tracking</span>
-            </div>
-            <div class="benefit-item">
-                <i class="fas fa-check"></i>
-                <span>Excel export & holiday management</span>
+            <div class="hero-image">
+                <i class="fas fa-fingerprint"></i>
+                <i class="fas fa-qrcode" style="font-size: 4rem; margin: 0 1rem;"></i>
+                <i class="fas fa-chart-simple"></i>
+                <p style="margin-top: 1rem;">Real-time dashboard preview</p>
             </div>
         </div>
 
-        <form id="demoForm" class="booking-form">
-            <div class="form-group">
-                <input type="text" id="fullName" placeholder="Full Name *" required>
+        <!-- Key features grid -->
+        <div id="features">
+            <h2 class="section-title">Stay Accurate with our Attendance Management System</h2>
+            <p class="section-sub">Automate end-to-end tracking, ensure compliance, and gain clear insights into attendance patterns.</p>
+            <div class="cards-grid">
+                <div class="card"><i class="fas fa-camera"></i><h3>Facial Recognition</h3><p>Contactless attendance via AI face detection. Works on web & mobile.</p></div>
+                <div class="card"><i class="fas fa-microchip"></i><h3>Biometric Integration</h3><p>Seamlessly connect with any biometric device (RFID, fingerprint).</p></div>
+                <div class="card"><i class="fas fa-chart-pie"></i><h3>Real-time Dashboard</h3><p>Live employee check-in status, overtime, and absence analytics.</p></div>
+                <div class="card"><i class="fas fa-file-alt"></i><h3>Custom Reports</h3><p>Export attendance logs, half‑day rules, and holiday calendars in one click.</p></div>
             </div>
-            <div class="form-group">
-                <input type="email" id="email" placeholder="Email Address *" required>
-            </div>
-            <div class="form-group">
-                <input type="tel" id="phone" placeholder="Phone Number *" required>
-            </div>
-            <div class="form-group">
-                <input type="text" id="companyName" placeholder="Company Name *" required>
-            </div>
-            <div class="form-group">
-                <select id="employees" required>
-                    <option value="">Number of Employees *</option>
-                    <option>1-50</option>
-                    <option>51-200</option>
-                    <option>201-500</option>
-                    <option>501-1000</option>
-                    <option>1000+</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <select id="demoDate" required>
-                    <option value="">Select Preferred Demo Date *</option>
-                    <option>Tomorrow</option>
-                    <option>Day after tomorrow</option>
-                    <option>Next Week</option>
-                    <option>Custom Date</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <textarea id="message" rows="3" placeholder="Any specific requirements? (Optional)"></textarea>
-            </div>
-            <button type="submit" class="submit-btn" id="submitBtn">
-                <i class="fas fa-calendar-check"></i> Schedule Free Demo
-            </button>
-        </form>
-    </div>
+        </div>
 
-    <!-- Features Showcase -->
-    <div class="showcase" id="features">
-        <h2>🚀 Why Companies Love <span style="color:#22d3ee;">Aparaitech</span></h2>
-        <div class="features-grid">
-            <div class="feature-card">
-                <i class="fas fa-qrcode"></i>
-                <h3>QR Code Attendance</h3>
-                <p>One scan check-in/out with secure QR codes for each workstation.</p>
-            </div>
-            <div class="feature-card">
-                <i class="fas fa-brain"></i>
-                <h3>Smart Rule Engine</h3>
-                <p>Auto half-day & quarter-day based on check-in/out times.</p>
-            </div>
-            <div class="feature-card">
-                <i class="fas fa-chart-line"></i>
-                <h3>Real-time Dashboard</h3>
-                <p>Live employee check-in status with performance analytics.</p>
-            </div>
-            <div class="feature-card">
-                <i class="fas fa-file-excel"></i>
-                <h3>Excel Export</h3>
-                <p>One-click export of attendance reports to Excel/CSV.</p>
-            </div>
-            <div class="feature-card">
-                <i class="fas fa-calendar-alt"></i>
-                <h3>Holiday Management</h3>
-                <p>Company holiday calendar with auto marking.</p>
-            </div>
-            <div class="feature-card">
-                <i class="fas fa-shield-alt"></i>
-                <h3>Secure & Reliable</h3>
-                <p>Enterprise-grade security with 99.9% uptime.</p>
+        <!-- More than attendance (HRMS modules) -->
+        <div id="modules">
+            <h2 class="section-title">Aparaitech is more than an attendance system</h2>
+            <div class="modules-grid">
+                <div class="module-item"><i class="fas fa-database"></i><span>Employee Database</span></div>
+                <div class="module-item"><i class="fas fa-clock"></i><span>Timesheets</span></div>
+                <div class="module-item"><i class="fas fa-chart-line"></i><span>Performance Management</span></div>
+                <div class="module-item"><i class="fas fa-graduation-cap"></i><span>Learning Management</span></div>
+                <div class="module-item"><i class="fas fa-user-plus"></i><span>Employee Onboarding</span></div>
+                <div class="module-item"><i class="fas fa-calendar-week"></i><span>Shift Scheduling</span></div>
+                <div class="module-item"><i class="fas fa-umbrella-beach"></i><span>Leave Tracker</span></div>
+                <div class="module-item"><i class="fas fa-briefcase"></i><span>Case Management</span></div>
             </div>
         </div>
-    </div>
-</div>
 
-<!-- Footer -->
-<footer class="footer" id="contact">
-    <div class="footer-container">
-        <div class="footer-logo">
-            <div class="logo">
-                <i class="fas fa-chart-line"></i>
-                <span>APARAITECH</span>
+        <!-- Trust ratings -->
+        <div class="trust-section">
+            <p style="font-weight: 600;">95% of customers say adapting to Aparaitech was easy</p>
+            <div class="ratings">
+                <div class="rating-card"><span class="stars">★★★★★</span> GetApp 4.8/5</div>
+                <div class="rating-card"><span class="stars">★★★★½</span> Capterra 4.7/5</div>
+                <div class="rating-card"><i class="fas fa-trophy"></i> Leader 2024</div>
+                <div class="rating-card"><i class="fas fa-check-circle"></i> Top-rated Quality</div>
             </div>
-            <p>Smart Attendance & HRMS Platform<br>Transforming workforce management since 2020</p>
+            <p>Trusted by <strong>30K+ businesses</strong> worldwide</p>
         </div>
-        <div class="footer-links">
-            <h4>Quick Links</h4>
-            <a href="#home">Home</a>
-            <a href="#features">Features</a>
-            <a href="#demo">Book Demo</a>
-            <a href="#">Pricing</a>
+
+        <!-- Pricing with toggle -->
+        <div id="pricing">
+            <h2 class="section-title">Perfect HR software for every business</h2>
+            <div class="pricing-toggle">
+                <span id="monthlyLabel" style="font-weight: 600;">Monthly</span>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="billingToggle">
+                    <span class="slider"></span>
+                </label>
+                <span id="annualLabel" style="font-weight: 600;">Annual <span style="background:#e0f0ea; padding:2px 8px; border-radius:30px;">Save 20%</span></span>
+            </div>
+            <div class="pricing-grid" id="pricingGrid">
+                <!-- Essential -->
+                <div class="price-card">
+                    <h3>Essential HR</h3>
+                    <div class="price" id="essentialPrice">₹1,299</div>
+                    <div id="essentialPeriod" style="color:#6c86a0;">/month</div>
+                    <ul style="margin: 1.5rem 0; list-style: none;">
+                        <li><i class="fas fa-check" style="color:#1e6faf;"></i> Up to 100 employees</li>
+                        <li><i class="fas fa-check"></i> Core attendance & reports</li>
+                        <li><i class="fas fa-check"></i> Email support</li>
+                    </ul>
+                    <button class="btn-price subscribe-btn" data-plan="Essential">Choose Plan</button>
+                </div>
+                <!-- Professional (Most popular) -->
+                <div class="price-card popular">
+                    <h3>Professional <span style="font-size:0.8rem; background:#1e6faf10; padding:2px 8px; border-radius:20px;">🔥 Most popular</span></h3>
+                    <div class="price" id="proPrice">₹2,799</div>
+                    <div id="proPeriod">/month</div>
+                    <ul style="margin: 1.5rem 0; list-style: none;">
+                        <li><i class="fas fa-check"></i> Up to 500 employees</li>
+                        <li><i class="fas fa-check"></i> Biometric & facial recognition</li>
+                        <li><i class="fas fa-check"></i> API & priority support</li>
+                        <li><i class="fas fa-check"></i> Performance & LMS modules</li>
+                    </ul>
+                    <button class="btn-price primary subscribe-btn" data-plan="Professional">Start 30-day trial</button>
+                </div>
+                <!-- Enterprise -->
+                <div class="price-card">
+                    <h3>Enterprise</h3>
+                    <div class="price" id="enterprisePrice">₹5,499</div>
+                    <div id="enterprisePeriod">/month</div>
+                    <ul style="margin: 1.5rem 0; list-style: none;">
+                        <li><i class="fas fa-check"></i> Unlimited employees</li>
+                        <li><i class="fas fa-check"></i> SSO + On‑premise</li>
+                        <li><i class="fas fa-check"></i> Dedicated account manager</li>
+                        <li><i class="fas fa-check"></i> 24/7 concierge support</li>
+                    </ul>
+                    <button class="btn-price subscribe-btn" data-plan="Enterprise">Contact sales</button>
+                </div>
+            </div>
+            <p class="section-sub" style="font-size:0.9rem;">*All plans include a 30‑day free trial. Cancel anytime.</p>
         </div>
-        <div class="footer-links">
-            <h4>Support</h4>
-            <a href="#">Help Center</a>
-            <a href="#">Documentation</a>
-            <a href="#">API Docs</a>
-            <a href="#">Status</a>
-        </div>
-        <div class="footer-links">
-            <h4>Contact</h4>
-            <a href="mailto:contact@aparaitech.com"><i class="fas fa-envelope"></i> contact@aparaitech.com</a>
-            <a href="tel:+919876543210"><i class="fas fa-phone"></i> +91 98765 43210</a>
-            <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
-            <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+
+        <!-- Free trial signup form (like Zoho) -->
+        <div id="signup" class="signup-section">
+            <div>
+                <h2 style="font-size: 1.8rem;">Start your <span style="color:#1e6faf;">free trial</span></h2>
+                <p>No credit card required. 30 days full access to Aparaitech HRMS.</p>
+                <div class="trust-section" style="margin-top: 1rem; text-align: left;">
+                    <p><i class="fas fa-shield-alt"></i> Enterprise-grade security & GDPR ready</p>
+                    <p><i class="fas fa-headset"></i> 24/7 priority support</p>
+                </div>
+            </div>
+            <form id="signupForm">
+                <div class="form-group"><input type="text" id="fullName" placeholder="Full Name *" required></div>
+                <div class="form-group"><input type="email" id="email" placeholder="Email Address *" required></div>
+                <div class="form-group"><input type="password" id="password" placeholder="Password *" required></div>
+                <div class="form-row">
+                    <select id="countryCode" style="width: 100px;"><option>+91</option><option>+1</option><option>+44</option></select>
+                    <input type="tel" id="phone" placeholder="Phone Number *" style="flex:1;" required>
+                </div>
+                <div class="checkbox"><input type="checkbox" id="terms" required> <span>I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></span></div>
+                <button type="submit" class="signup-btn">FREE SIGN UP →</button>
+                <div class="social-signup">or sign in using <i class="fab fa-google"></i> Google or <i class="fab fa-linkedin"></i> LinkedIn</div>
+            </form>
         </div>
     </div>
-    <div class="footer-bottom">
-        <p>&copy; 2024 Aparaitech Software Pvt Ltd. All rights reserved. | Innovating Workforce Solutions</p>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <p>© 2025 Aparaitech Software Pvt Ltd. All rights reserved. | <a href="#">Terms of Service</a> | <a href="#">Privacy Policy</a></p>
+        <p style="margin-top: 0.5rem;">Trusted by 30K+ businesses worldwide</p>
     </div>
 </footer>
 
 <script>
-    // ✅ REPLACE THIS WITH YOUR ACTUAL DEPLOYED URL
-    const GOOGLE_SHEET_API_URL = "https://script.google.com/macros/s/AKfycbz0n24oth6MCEgl4bRG9UIQjvq3tr8dT4dSgmNKNwcuinuHyx9IJv8LA-L6_64iR9mm8Q/exec";
-    
-    const form = document.getElementById('demoForm');
-    const submitBtn = document.getElementById('submitBtn');
-    
-    function showToast(message, bgColor = '#22c55e') {
-        const existingToast = document.querySelector('.toast');
-        if(existingToast) existingToast.remove();
-        
-        const toast = document.createElement('div');
-        toast.className = 'toast';
-        toast.textContent = message;
-        toast.style.background = bgColor;
-        document.body.appendChild(toast);
-        
-        setTimeout(() => {
-            toast.remove();
-        }, 5000);
-    }
-    
-    async function submitToGoogleSheet(formData) {
-        try {
-            const response = await fetch(GOOGLE_SHEET_API_URL, {
-                method: 'POST',
-                mode: 'no-cors', // Changed to no-cors for better compatibility
-                cache: 'no-cache',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData)
-            });
-            
-            // For no-cors mode, we assume success if no error
-            return { success: true };
-        } catch (error) {
-            console.error('Submission error:', error);
-            return { success: false, error: error.message };
-        }
-    }
-    
-    form.addEventListener('submit', async function(e) {
-        e.preventDefault();
-        
-        const name = document.getElementById('fullName').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const phone = document.getElementById('phone').value.trim();
-        const company = document.getElementById('companyName').value.trim();
-        const employees = document.getElementById('employees').value;
-        const demoDate = document.getElementById('demoDate').value;
-        const message = document.getElementById('message').value.trim();
-        
-        if(!name || !email || !phone || !company || !employees || !demoDate) {
-            showToast('Please fill all required fields!', '#dc2626');
-            return;
-        }
-        
-        if(!email.includes('@') || !email.includes('.')) {
-            showToast('Please enter a valid email address!', '#dc2626');
-            return;
-        }
-        
-        if(phone.length < 10) {
-            showToast('Please enter a valid phone number (min 10 digits)!', '#dc2626');
-            return;
-        }
-        
-        const formData = {
-            fullName: name,
-            email: email,
-            phone: phone,
-            companyName: company,
-            employees: employees,
-            demoDate: demoDate,
-            message: message || "",
-            timestamp: new Date().toISOString()
-        };
-        
-        submitBtn.disabled = true;
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Submitting...';
-        
-        const result = await submitToGoogleSheet(formData);
-        
-        if (result.success) {
-            showToast('✅ Demo scheduled successfully! Check your Email.', '#22c55e');
-            form.reset();
-            console.log('Form data sent:', formData);
-        } else {
-            showToast('❌ Submission failed. Please try again.', '#dc2626');
-        }
-        
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = '<i class="fas fa-calendar-check"></i> Schedule Free Demo';
-    });
-    
-    console.log('Form ready. Using API URL:', GOOGLE_SHEET_API_URL);
+    // Pricing toggle
+    const toggle = document.getElementById('billingToggle');
+    const monthlyLabel = document.getElementById('monthlyLabel');
+    const annualLabel = document.getElementById('annualLabel');
+    const essentialPrice = document.getElementById('essentialPrice');
+    const essentialPeriod = document.getElementById('essentialPeriod');
+    const proPrice = document.getElementById('proPrice');
+    const proPeriod = document.getElementById('proPeriod');
+    const enterprisePrice = document.getElementById('enterprisePrice');
+    const enterprisePeriod = document.getElementById('enterprisePeriod');
 
-    function forceAuthorize() {
-  const email = Session.getActiveUser().getEmail();
-  GmailApp.sendEmail(email, "Authorization Test", "If you see this, email is working!");
-  console.log("Authorization successful! Email sent to: " + email);
-}
+    function updatePrices(isAnnual) {
+        if(isAnnual) {
+            essentialPrice.innerText = '₹12,490';
+            essentialPeriod.innerText = '/year (billed annually)';
+            proPrice.innerText = '₹26,990';
+            proPeriod.innerText = '/year (billed annually)';
+            enterprisePrice.innerText = '₹52,990';
+            enterprisePeriod.innerText = '/year (billed annually)';
+            monthlyLabel.style.opacity = '0.6';
+            annualLabel.style.opacity = '1';
+        } else {
+            essentialPrice.innerText = '₹1,299';
+            essentialPeriod.innerText = '/month';
+            proPrice.innerText = '₹2,799';
+            proPeriod.innerText = '/month';
+            enterprisePrice.innerText = '₹5,499';
+            enterprisePeriod.innerText = '/month';
+            monthlyLabel.style.opacity = '1';
+            annualLabel.style.opacity = '0.6';
+        }
+    }
+
+    toggle.addEventListener('change', (e) => {
+        updatePrices(e.target.checked);
+    });
+    updatePrices(false);
+
+    // Subscribe buttons toast
+    function showToast(msg) {
+        let toast = document.createElement('div');
+        toast.innerText = msg;
+        toast.style.position = 'fixed';
+        toast.style.bottom = '20px';
+        toast.style.right = '20px';
+        toast.style.background = '#1e2a3a';
+        toast.style.color = 'white';
+        toast.style.padding = '12px 24px';
+        toast.style.borderRadius = '60px';
+        toast.style.zIndex = '999';
+        document.body.appendChild(toast);
+        setTimeout(() => toast.remove(), 3000);
+    }
+
+    document.querySelectorAll('.subscribe-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const plan = btn.getAttribute('data-plan');
+            const isAnnual = toggle.checked;
+            showToast(`✅ You selected ${plan} (${isAnnual ? 'Annual' : 'Monthly'} plan). Our team will contact you to activate your free trial.`);
+        });
+    });
+
+    // Signup form handling
+    const signupForm = document.getElementById('signupForm');
+    signupForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('fullName').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        const phone = document.getElementById('phone').value;
+        const terms = document.getElementById('terms').checked;
+        if(!name || !email || !password || !phone || !terms) {
+            showToast('Please fill all fields and accept terms.', true);
+            return;
+        }
+        showToast('🎉 Free trial started! Check your email for onboarding details.', false);
+        signupForm.reset();
+    });
 </script>
 </body>
 </html>
