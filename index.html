@@ -6,6 +6,7 @@
     <title>Aparaitech | Smart Attendance App with Face Recognition & GPS</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -27,82 +28,101 @@
             padding: 0 2rem;
         }
 
-        /* Header */
-        .header {
-            position: sticky;
-            top: 0;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid #eef2f8;
-            z-index: 100;
-            padding: 1rem 0;
-        }
+/* Header */
+.header {
+    position: sticky;
+    top: 0;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid #eef2f8;
+    z-index: 100;
+    padding: 1rem 0;
+}
 
-        .header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
 
-        .logo {
-            font-size: 1.7rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #0f2b3d, #1e6faf);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            letter-spacing: -0.5px;
-        }
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 
-        .logo i {
-            color: #1e6faf;
-            background: none;
-            margin-right: 8px;
-        }
+    font-size: 1.1rem;   /* reduced size */
+    font-weight: 800;
 
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-            flex-wrap: wrap;
-        }
+    background: linear-gradient(135deg, #0f2b3d, #1e6faf);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
 
-        .nav-links a {
-            text-decoration: none;
-            color: #1f3b4c;
-            font-weight: 500;
-            transition: 0.2s;
-        }
+    letter-spacing: -0.3px;
+}
 
-        .nav-links a:hover {
-            color: #1e6faf;
-        }
+/* If image logo exists */
+.logo img {
+    width: 38px;
+    height: 38px;
+    object-fit: contain;
+}
 
-        .btn-outline {
-            border: 1px solid #1e6faf;
-            padding: 8px 20px;
-            border-radius: 40px;
-            color: #1e6faf !important;
-            font-weight: 600;
-            background: transparent;
-        }
+/* If icon logo exists */
+.logo i {
+    font-size: 1.1rem;
+    color: #1e6faf;
+    background: none;
+    margin-right: 2px;
+}
 
-        .btn-primary {
-            background: #1e6faf;
-            color: white !important;
-            padding: 8px 24px;
-            border-radius: 40px;
-            font-weight: 600;
-            transition: all 0.2s;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
+/* Navigation */
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
 
-        .btn-primary:hover {
-            background: #0e5a96;
-            transform: translateY(-2px);
-        }
+.nav-links a {
+    text-decoration: none;
+    color: #1f3b4c;
+    font-weight: 500;
+    transition: 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: #1e6faf;
+}
+
+/* Outline Button */
+.btn-outline {
+    border: 1px solid #1e6faf;
+    padding: 8px 20px;
+    border-radius: 40px;
+    color: #1e6faf !important;
+    font-weight: 600;
+    background: transparent;
+}
+
+/* Primary Button */
+.btn-primary {
+    background: #1e6faf;
+    color: white !important;
+    padding: 8px 24px;
+    border-radius: 40px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.btn-primary:hover {
+    background: #0e5a96;
+    transform: translateY(-2px);
+}
 
         /* Hero section with stats */
         .hero-stats {
@@ -410,6 +430,80 @@
             color: #4a627a;
         }
 
+/* Social icons horizontal + animation */
+.footer-col ul li:nth-child(3),
+.footer-col ul li:nth-child(4),
+.footer-col ul li:nth-child(5),
+.footer-col ul li:nth-child(6),
+.footer-col ul li:nth-child(7){
+    display:inline-block;
+    margin-right:10px;
+    margin-top:8px;
+}
+
+/* Base icon style */
+.footer-col ul li:nth-child(3) a,
+.footer-col ul li:nth-child(4) a,
+.footer-col ul li:nth-child(5) a,
+.footer-col ul li:nth-child(6) a,
+.footer-col ul li:nth-child(7) a{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    background:#ffffff;
+    color:#1e6faf;
+    text-decoration:none;
+    box-shadow:0 2px 8px rgba(0,0,0,0.06);
+    animation:pulseIcon 2s infinite ease-in-out;
+    transition:all 0.3s ease;
+}
+
+/* Zoom animation */
+@keyframes pulseIcon{
+    0%{
+        transform:scale(1);
+    }
+    50%{
+        transform:scale(1.12);
+    }
+    100%{
+        transform:scale(1);
+    }
+}
+
+/* LinkedIn */
+.footer-col ul li:nth-child(3) a:hover{
+    background:#0077b5;
+    color:#ffffff;
+}
+
+/* YouTube */
+.footer-col ul li:nth-child(4) a:hover{
+    background:#ff0000;
+    color:#ffffff;
+}
+
+/* Instagram */
+.footer-col ul li:nth-child(5) a:hover{
+    background:#e4405f;
+    color:#ffffff;
+}
+
+/* Facebook */
+.footer-col ul li:nth-child(6) a:hover{
+    background:#1877f2;
+    color:#ffffff;
+}
+
+/* X / Twitter */
+.footer-col ul li:nth-child(7) a:hover{
+    background:#000000;
+    color:#ffffff;
+}
+
         .footer-bottom {
             text-align: center;
             border-top: 1px solid #e2edf7;
@@ -438,7 +532,10 @@
 
 <header class="header">
     <div class="container">
-        <div class="logo"><i class="fas fa-mobile-alt"></i> Aparaitech</div>
+        <div class="logo">
+            <img src="src/logo-dGMmyYLC.png" alt="Aparaitech Logo">
+            <span>APARAITECH</span>
+        </div>
         <div class="nav-links">
             <a href="#features">Features</a>
             <a href="#app-download">Mobile App</a>
@@ -622,13 +719,37 @@
             <div class="footer-col">
                 <h4>Contact Us</h4>
                 <ul>
-                    <li><i class="fas fa-phone-alt"></i> +91 9500 537 347</li>
-                    <li><i class="fas fa-envelope"></i> sales@aparaitech.com</li>
-                    <li><i class="fab fa-linkedin"></i> LinkedIn</li>
-                    <li><i class="fab fa-facebook"></i> Facebook</li>
+                    <li><i class="fas fa-phone-alt"></i> +91 63643 26342</li>
+                    <li><i class="fas fa-envelope"></i> info@aparaitechsoftware.org</li>
+                    <li><a href="https://www.linkedin.com/company/aparaitech/posts/?feedView=all"><i class="fab fa-linkedin-in"></i></a></li>
+                    <li><a href="https://www.youtube.com/@Aparaitech"><i class="fab fa-youtube"></i></a></li>
+                    <li><a href="https://www.instagram.com/aparaitech_global/"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="https://www.facebook.com/profile.php?id=61586032508393"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="https://x.com/Aparaitech" target="_blank"><i class="fab fa-x-twitter"></i></a></li>
                 </ul>
-                <p style="margin-top: 0.5rem; font-size:0.8rem;">4th Floor, Vishwani Melaram Tower, Karappakkam (OMR), Chennai, India</p>
-                <p style="margin-top:0.5rem;"><i class="fas fa-download"></i> Available in English & Hindi</p>
+
+                <p style="margin-top: 0.5rem; font-size:0.8rem;">
+                  <strong>Branch Address:</strong><br>
+                    <a href="https://www.google.com/maps/place/360,+Neeladri+Rd,+Karuna+Nagar,+Electronic+City+Phase+I,+Electronic+City,+Doddathoguru,+Karnataka+560100/"
+                       target="_blank"
+                       style="color:#4a627a; text-decoration:none;">
+                             360, Neeladri Rd, Electronic City Phase I, Bengaluru – 560100
+                    </a>
+                </p>
+
+                <p style="margin-top: 0.5rem; font-size:0.8rem;">
+                  <strong>New Branch:</strong><br>
+                    <a href="https://www.google.com/maps/search/Mukti+Complex,+Near+Prashaskiya+Bhawan,+Baramati/"
+                       target="_blank"
+                       style="color:#4a627a; text-decoration:none;">
+                             Mukti Complex, Near Prashaskiya Bhawan, Baramati
+                    </a>
+                </p>
+
+                <p style="margin-top:0.5rem;">
+                    <i class="fas fa-download"></i> Available in English & Hindi
+                </p>
+
             </div>
         </div>
         <div class="footer-bottom">
