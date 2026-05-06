@@ -101,27 +101,180 @@
 /* Outline Button */
 .btn-outline {
     border: 1px solid #1e6faf;
-    padding: 8px 20px;1
+    padding: 8px 20px;
     border-radius: 40px;
-    color: #1e6faf !important;
+    color: white !important;
     font-weight: 600;
-    background: transparent;
+    background: #1e6faf;
 }
 
 /* Primary Button */
 .btn-primary {
-    background: #1e6faf;
+    background: linear-gradient(135deg,#1e6faf);
     color: white !important;
     padding: 8px 24px;
     border-radius: 40px;
     font-weight: 600;
-    transition: all 0.2s ease;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
 }
 
 .btn-primary:hover {
     background: #0e5a96;
     transform: translateY(-2px);
+}
+
+/* Top Hero Banner */
+.top-hero-banner{
+    background:linear-gradient(90deg,#163f78,#5f769d,#d8dbe1);
+    color:#ffffff;
+
+    display:grid;
+    grid-template-columns:1.2fr 1fr;
+
+    gap:2rem;
+    align-items:center;
+
+    padding:4rem 5rem;
+}
+
+.top-hero-left h1{
+    font-size:3rem;
+    font-weight:800;
+    line-height:1.2;
+    margin-bottom:1.5rem;
+}
+
+.top-hero-left p{
+    font-size:1.1rem;
+    line-height:1.7;
+    max-width:700px;
+    margin-bottom:2rem;
+    color:rgba(255,255,255,0.92);
+}
+
+.top-hero-left h1 span{
+    color:#ffc107;
+}
+
+/* Attendance Sections */
+.attendance-intro,
+.attendance-logs{
+    text-align:center;
+    padding:4rem 2rem;
+}
+
+/* Titles */
+.attendance-title{
+    font-size:2.2rem;
+    font-weight:800;
+    color:#0a2b4e;
+    margin-bottom:1.5rem;
+}
+
+/* Description */
+.attendance-desc{
+    max-width:900px;
+    margin:auto;
+
+    color:#4a627a;
+    font-size:1rem;
+    line-height:1.8;
+}
+
+/* CTA Button */
+.know-more-btn{
+    margin-top:2rem;
+
+    background:#ffc107;
+    color:#0a2b4e;
+
+    border:none;
+    border-radius:8px;
+
+    padding:12px 28px;
+
+    font-weight:600;
+    cursor:pointer;
+
+    transition:0.3s ease;
+}
+
+.know-more-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 12px 25px rgba(255,193,7,0.25);
+}
+
+/* Stats */
+.hero-stats-inline{
+    display:flex;
+    flex-wrap:wrap;
+    gap:2rem;
+    margin-bottom:2rem;
+}
+
+.hero-stats-inline h2{
+    color:#ffc107;
+    font-size:2rem;
+    font-weight:800;
+}
+
+.hero-stats-inline span{
+    font-size:0.9rem;
+    color:#ffffff;
+}
+
+/* Button */
+.hero-demo-btn{
+    background:#ffc107;
+    border:none;
+    padding:14px 30px;
+    border-radius:8px;
+
+    font-weight:600;
+    font-size:1rem;
+
+    cursor:pointer;
+    transition:0.3s ease;
+}
+
+.hero-demo-btn:hover{
+    transform:translateY(-3px);
+}
+
+/* Phone */
+.top-hero-right{
+    display:flex;
+    justify-content:center;
+}
+
+.phone-frame img{
+    max-width:280px;
+    animation:phoneFloat 3s ease-in-out infinite;
+}
+
+@keyframes phoneFloat{
+    0%{ transform:translateY(0px); }
+    50%{ transform:translateY(-10px); }
+    100%{ transform:translateY(0px); }
+}
+
+/* Mobile */
+@media(max-width:768px){
+
+    .top-hero-banner{
+        grid-template-columns:1fr;
+        text-align:center;
+        padding:3rem 2rem;
+    }
+
+    .hero-stats-inline{
+        justify-content:center;
+    }
+
+    .top-hero-left h1{
+        font-size:2rem;
+    }
+
 }
 
         /* Hero section with stats */
@@ -207,59 +360,100 @@
             height: 44px;
         }
 
-        /* feature grid */
-        .section-title {
-            text-align: center;
-            font-size: 2rem;
-            font-weight: 700;
-            color: #0a2b4e;
-            margin-bottom: 1rem;
-        }
 
-        .section-sub {
-            text-align: center;
-            color: #5e7a93;
-            max-width: 700px;
-            margin: 0 auto 2.5rem;
-        }
 
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 2rem;
-            margin: 2.5rem 0;
-        }
+/* Features Main Section */
+#features{
+    background:#fafcff;
 
-        .feature-card {
-            background: white;
-            border-radius: 28px;
-            padding: 1.6rem;
-            border: 1px solid #eef2f8;
-            transition: all 0.25s;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
-        }
+    padding:5rem 3rem;
+    margin:4rem 0;
 
-        .feature-card:hover {
-            transform: translateY(-4px);
-            border-color: #cde0ef;
-            box-shadow: 0 20px 25px -12px rgba(0,0,0,0.08);
-        }
+    border-radius:0;
+    text-align:center;
+}
 
-        .feature-card i {
-            font-size: 2.2rem;
-            color: #1e6faf;
-            margin-bottom: 1rem;
-        }
+/* Title */
+.section-title{
+    text-align:center;
+    font-size:2.3rem;
+    font-weight:800;
+    color:#0a2b4e;
+    margin-bottom:0.6rem;
+}
 
-        .feature-card h3 {
-            font-size: 1.25rem;
-            margin-bottom: 0.5rem;
-        }
+/* Subtitle */
+.section-sub{
+    text-align:center;
+    color:#6c86a0;
+    font-size:1rem;
+    margin-bottom:4rem;
+}
 
-        .feature-card p {
-            color: #5e7a93;
-            font-size: 0.9rem;
-        }
+/* Grid */
+.features-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:3rem 2rem;
+}
+
+/* Individual Feature */
+.feature-card{
+    background:transparent;
+    border:none;
+    box-shadow:none;
+
+    padding:0.5rem;
+
+    text-align:center;
+
+    transition:all 0.3s ease;
+}
+
+/* Hover */
+.feature-card:hover{
+    transform:translateY(-8px);
+}
+
+/* Icons */
+.feature-card i{
+    font-size:2.7rem;
+
+    margin-bottom:1rem;
+
+    background:linear-gradient(135deg,#1e6faf,#ffc107);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+
+    transition:all 0.3s ease;
+}
+
+.feature-card:hover i{
+    transform:scale(1.15);
+}
+
+/* Feature Title */
+.feature-card h3{
+    font-size:1rem;
+    font-weight:700;
+
+    color:#0a2b4e;
+
+    margin-bottom:0.6rem;
+}
+
+/* Feature Text */
+.feature-card p{
+    font-size:0.85rem;
+    line-height:1.6;
+
+    color:#5e7a93;
+
+    max-width:220px;
+    margin:auto;
+}
+
 
         .two-column-layout {
             display: grid;
@@ -295,7 +489,7 @@
         }
 
         .testimonial-block {
-            background: #f0f6fe;
+            background: #fafcff;
             border-radius: 32px;
             padding: 2rem;
             text-align: center;
@@ -337,7 +531,7 @@
 
         /* appointment form (schedule now) */
         .schedule-card {
-            background: #ffffff;
+            background: #fafcff;
             border-radius: 48px;
             padding: 2.5rem;
             margin: 3rem 0;
@@ -374,13 +568,52 @@
             font-size: 0.9rem;
         }
 
-        .checkbox-appoint {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin: 1rem 0;
-            font-size: 0.85rem;
-        }
+/* Checkbox alignment fix */
+.checkbox-appoint{
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+
+    gap:12px;
+
+    margin:1rem 0 1.5rem 0;
+
+    font-size:0.9rem;
+    color:#4a627a;
+
+    line-height:1.5;
+}
+
+/* Checkbox */
+.checkbox-appoint input[type="checkbox"]{
+    width:18px;
+    height:18px;
+
+    margin:0;
+
+    cursor:pointer;
+
+    accent-color:#1e6faf;
+
+    flex-shrink:0;
+}
+
+/* Label */
+.checkbox-appoint label{
+    margin:0;
+    cursor:pointer;
+}
+
+/* Links */
+.checkbox-appoint label a{
+    color:#1e6faf;
+    text-decoration:none;
+    font-weight:500;
+}
+
+.checkbox-appoint label a:hover{
+    color:#ffc107;
+}
 
         .btn-send {
             background: #1e6faf;
@@ -394,123 +627,153 @@
             cursor: pointer;
         }
 
-        /* footer multi-column */
-        .footer {
-            background: #f8fafd;
-            border-radius: 32px 32px 0 0;
-            padding: 3rem 2rem 2rem;
-            margin-top: 4rem;
-        }
+/* Premium Footer */
+.footer{
+    background:#1f3f75;
+    color:#ffffff;
+    border-radius:0;
+    padding:4rem 2rem 2rem;
+    margin-top:4rem;
+}
 
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
+.footer .container{
+    max-width:1300px;
+    margin:auto;
+}
 
-        .footer-col h4 {
-            font-size: 1rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: #0a2b4e;
-        }
+/* Grid */
+.footer-grid{
+    display:grid;
+    grid-template-columns:2fr 1.2fr 1.2fr 2fr;
+    gap:3rem;
+    padding-bottom:2rem;
+    border-bottom:1px solid rgba(255,255,255,0.15);
+}
 
-        .footer-col ul {
-            list-style: none;
-        }
+/* Headings */
+.footer-col h4{
+    font-size:1rem;
+    font-weight:700;
+    margin-bottom:1rem;
+    color:#ffffff;
+}
 
-        .footer-col li {
-            margin-bottom: 0.5rem;
-            font-size: 0.85rem;
-        }
+/* Lists */
+.footer-col ul{
+    list-style:none;
+    padding:0;
+    margin:0;
+}
 
-        .footer-col a {
-            text-decoration: none;
-            color: #4a627a;
-        }
+.footer-col li{
+    margin-bottom:0.7rem;
+    font-size:0.85rem;
+    color:rgba(255,255,255,0.85);
+    line-height:1.5;
+    transition:0.3s ease;
+}
 
-/* Social icons horizontal + animation */
+.footer-col li:hover{
+    transform:translateX(4px);
+}
+
+/* Links */
+.footer-col a{
+    text-decoration:none;
+    color:rgba(255,255,255,0.85);
+    transition:0.3s ease;
+}
+
+.footer-col a:hover{
+    color:#ffc107;
+}
+
+/* Contact icons */
+.footer-col i{
+    margin-right:8px;
+    color:#ffc107;
+}
+
+/* Social icons */
 .footer-col ul li:nth-child(3),
 .footer-col ul li:nth-child(4),
 .footer-col ul li:nth-child(5),
 .footer-col ul li:nth-child(6),
 .footer-col ul li:nth-child(7){
     display:inline-block;
-    margin-right:10px;
+    margin-right:12px;
     margin-top:8px;
 }
 
-/* Base icon style */
+/* Social style */
 .footer-col ul li:nth-child(3) a,
 .footer-col ul li:nth-child(4) a,
 .footer-col ul li:nth-child(5) a,
 .footer-col ul li:nth-child(6) a,
 .footer-col ul li:nth-child(7) a{
+    width:42px;
+    height:42px;
     display:inline-flex;
     align-items:center;
     justify-content:center;
-    width:42px;
-    height:42px;
     border-radius:50%;
-    background:#ffffff;
-    color:#1e6faf;
-    text-decoration:none;
-    box-shadow:0 2px 8px rgba(0,0,0,0.06);
+    background:rgba(255,255,255,0.08);
+    color:#ffffff;
     animation:pulseIcon 2s infinite ease-in-out;
-    transition:all 0.3s ease;
+    transition:0.3s ease;
 }
 
-/* Zoom animation */
+/* Animation */
 @keyframes pulseIcon{
-    0%{
-        transform:scale(1);
+    0%{ transform:scale(1); }
+    50%{ transform:scale(1.12); }
+    100%{ transform:scale(1); }
+}
+
+/* Hover Colors */
+.footer-col ul li:nth-child(3) a:hover{ background:#0077b5; }
+.footer-col ul li:nth-child(4) a:hover{ background:#ff0000; }
+.footer-col ul li:nth-child(5) a:hover{ background:#e4405f; }
+.footer-col ul li:nth-child(6) a:hover{ background:#1877f2; }
+.footer-col ul li:nth-child(7) a:hover{ background:#000000; }
+
+/* Footer bottom */
+.footer-bottom{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:1rem;
+
+    padding-top:2rem;
+
+    font-size:0.82rem;
+    color:rgba(255,255,255,0.75);
+}
+
+.footer-bottom a{
+    color:rgba(255,255,255,0.75);
+    text-decoration:none;
+}
+
+.footer-bottom a:hover{
+    color:#ffc107;
+}
+
+/* Mobile */
+@media(max-width:768px){
+
+    .footer-grid{
+        grid-template-columns:1fr;
+        gap:2rem;
     }
-    50%{
-        transform:scale(1.12);
+
+    .footer-bottom{
+        flex-direction:column;
+        text-align:center;
     }
-    100%{
-        transform:scale(1);
-    }
-}
 
-/* LinkedIn */
-.footer-col ul li:nth-child(3) a:hover{
-    background:#0077b5;
-    color:#ffffff;
 }
-
-/* YouTube */
-.footer-col ul li:nth-child(4) a:hover{
-    background:#ff0000;
-    color:#ffffff;
-}
-
-/* Instagram */
-.footer-col ul li:nth-child(5) a:hover{
-    background:#e4405f;
-    color:#ffffff;
-}
-
-/* Facebook */
-.footer-col ul li:nth-child(6) a:hover{
-    background:#1877f2;
-    color:#ffffff;
-}
-
-/* X / Twitter */
-.footer-col ul li:nth-child(7) a:hover{
-    background:#000000;
-    color:#ffffff;
-}
-
-        .footer-bottom {
-            text-align: center;
-            border-top: 1px solid #e2edf7;
-            padding-top: 1.5rem;
-            font-size: 0.8rem;
-            color: #6c86a0;
-        }
 
         @media (max-width: 768px) {
             .hero, .two-column-layout, .schedule-card {
@@ -546,16 +809,68 @@
     </div>
 </header>
 
-<main>
-    <div class="container">
-        <!-- Stats row (image style) -->
-        <div class="hero-stats">
-            <div class="stat-item"><div class="stat-number">18+</div><div class="stat-label">Years in Industry</div></div>
-            <div class="stat-item"><div class="stat-number">27K+</div><div class="stat-label">Customers</div></div>
-            <div class="stat-item"><div class="stat-number">500+</div><div class="stat-label">Dedicated Staff</div></div>
-            <div class="stat-item"><div class="stat-number">1M+</div><div class="stat-label">Active Users</div></div>
+<section class="top-hero-banner">
+
+    <div class="top-hero-left">
+
+        <h1>
+            Smart Attendance App with Face
+           Recognition and GPS
+        </h1>
+
+        <p>
+            Are you still tracking staff attendance with manual punch-ins and punch-outs?
+            Manage employee attendance with our mobile app integrated with payroll,
+            GPS tracking and biometric face recognition.
+        </p>
+
+        <div class="hero-stats-inline">
+
+            <div>
+                <h2>18+</h2>
+                <span>Years in Industry</span>
+            </div>
+
+            <div>
+                <h2>27,000+</h2>
+                <span>Customers</span>
+            </div>
+
+            <div>
+                <h2>500+</h2>
+                <span>Dedicated Staff</span>
+            </div>
+
+            <div>
+                <h2>1M+</h2>
+                <span>Active Users</span>
+            </div>
+
         </div>
 
+        <a href="#schedule">
+        <button class="hero-demo-btn">
+            Schedule a Demo
+        </button>
+        </a>
+
+    </div>
+
+
+    <div class="top-hero-right">
+
+        <div class="phone-frame">
+
+            <img src="src/banner-mobile-attendance-sg.webp" alt="Face Recognition App">
+
+        </div>
+
+    </div>
+
+</section>
+
+<main>
+    <div class="container">
         <!-- Hero + face recognition / gps -->
         <div class="hero">
             <div>
@@ -563,9 +878,7 @@
                 <h1>Smart Attendance App with <span class="highlight">Face Recognition & GPS</span></h1>
                 <p>Are you still tracking staff attendance with manual punch-ins? Manage employee attendance with our mobile app, integrated with time attendance and payroll software. Our biometric attendance system with face recognition simplifies workforce management for businesses of all sizes.</p>
                 <div class="badge-group">
-                    <i class="fab fa-apple" style="font-size: 2.5rem; color:#1e6faf;"></i>
-                    <i class="fab fa-android" style="font-size: 2.5rem; color:#1e6faf;"></i>
-                    <span style="font-size:0.85rem;">iOS & Android</span>
+
                 </div>
             </div>
             <div class="phone-mock">
@@ -580,21 +893,106 @@
             </div>
         </div>
 
-        <!-- Key Features of Mobile Attendance App -->
-        <div id="features">
-            <h2 class="section-title">Key Features of Mobile Attendance App</h2>
-            <p class="section-sub">These essentials help you handle attendance with ease.</p>
-            <div class="features-grid">
-                <div class="feature-card"><i class="fas fa-chart-line"></i><h3>Real-Time Tracking</h3><p>Click-in and out anywhere, anytime using mobile.</p></div>
-                <div class="feature-card"><i class="fas fa-face-smile"></i><h3>Face Recognition</h3><p>Accurate attendance verification with built-in face recognition.</p></div>
-                <div class="feature-card"><i class="fas fa-location-dot"></i><h3>GPS Location Captured</h3><p>Verify employees are at designated location when clocking in.</p></div>
-                <div class="feature-card"><i class="fas fa-shield-haltered"></i><h3>Fake GPS Detection</h3><p>Detects fake GPS signals, prevents inaccurate clock-ins.</p></div>
-                <div class="feature-card"><i class="fas fa-wifi"></i><h3>Offline Clocking</h3><p>Records GPS coordinates even without internet access.</p></div>
-                <div class="feature-card"><i class="fas fa-draw-polygon"></i><h3>Geo Fencing</h3><p>Click-in/out only at office or assigned work site within a radius.</p></div>
-                <div class="feature-card"><i class="fas fa-tablet-alt"></i><h3>Kiosk Mode</h3><p>Click-in using a supervisor’s mobile device.</p></div>
-                <div class="feature-card"><i class="fas fa-project-diagram"></i><h3>Project Record</h3><p>Log project details through the app seamlessly.</p></div>
-            </div>
+        <!-- Attendance Intro -->
+<section class="attendance-intro container">
+
+    <h2 class="attendance-title">
+        Mobile Self-Attendance App for Accurate Tracking
+    </h2>
+
+    <p class="attendance-desc">
+        DigiSME’s mobile attendance app allows managers to track attendance records
+        including lateness, absenteeism, and overtime in real time.
+        Remote employees can easily clock in using their smartphones with face
+        recognition and GPS location capture.
+        It syncs smoothly with our HR software for accurate time management.
+    </p>
+
+</section>
+
+
+       <!-- Key Features -->
+<section id="features" class="mobile-features-section">
+
+    <h2 class="section-title">
+        Key Features of Mobile Attendance App
+    </h2>
+
+    <p class="section-sub">
+        These essentials help you handle attendance with ease.
+    </p>
+
+    <div class="features-grid">
+
+        <div class="feature-card">
+            <i class="fas fa-chart-line"></i>
+            <h3>Real-Time Tracking</h3>
+            <p>Click-in and out anywhere, anytime using mobile.</p>
         </div>
+
+        <div class="feature-card">
+            <i class="fas fa-user-check"></i>
+            <h3>Face Recognition</h3>
+            <p>Accurate attendance verification with face recognition.</p>
+        </div>
+
+        <div class="feature-card">
+            <i class="fas fa-location-dot"></i>
+            <h3>GPS Location Captured</h3>
+            <p>Verify employee location while clocking in.</p>
+        </div>
+
+        <div class="feature-card">
+            <i class="fas fa-ban"></i>
+            <h3>Fake GPS Detection</h3>
+            <p>Detects fake GPS and prevents inaccurate entries.</p>
+        </div>
+
+        <div class="feature-card">
+            <i class="fas fa-wifi"></i>
+            <h3>Offline Clocking</h3>
+            <p>Works even without active internet.</p>
+        </div>
+
+        <div class="feature-card">
+            <i class="fas fa-draw-polygon"></i>
+            <h3>Geo Fencing</h3>
+            <p>Allows attendance only in assigned zones.</p>
+        </div>
+
+        <div class="feature-card">
+            <i class="fas fa-tablet-screen-button"></i>
+            <h3>Kiosk Mode</h3>
+            <p>Attendance via supervisor device.</p>
+        </div>
+
+        <div class="feature-card">
+            <i class="fas fa-folder-open"></i>
+            <h3>Project Record</h3>
+            <p>Track project activity through mobile.</p>
+        </div>
+
+    </div>
+
+</section>
+<!-- Attendance Logs CTA -->
+<section class="attendance-logs container">
+
+    <h2 class="attendance-title">
+        Check Attendance Logs at Anywhere, Anytime
+    </h2>
+
+    <p class="attendance-desc">
+        Using our mobile attendance app, employees can easily review their attendance
+        logs anytime and anywhere, helping with effective planning.
+    </p>
+
+      <a href="#features">
+    <button class="know-more-btn">
+        Know More
+    </button>
+</a>
+</section>
 
         <!-- Additional: iOS & Android, anti-spoofing, sync portal -->
         <div class="two-column-layout" id="app-download">
@@ -620,7 +1018,7 @@
                 <div style="margin-top:1rem;"><i class="fas fa-star"></i> Kruve team</div>
             </div>
         </div>
-
+        <br>
         <!-- A Complete Mobile App to Manage Attendance + bullet list -->
         <div style="background: #fefcf5; border-radius: 48px; padding: 2rem; margin: 2rem 0;">
             <div style="display: flex; flex-wrap: wrap; gap: 2rem; align-items:center; justify-content: space-between;">
@@ -638,13 +1036,13 @@
                 <div><i class="fas fa-download" style="font-size: 5rem; color:#1e6faf;"></i><br><span>Download Now</span></div>
             </div>
         </div>
-
+        <br>
         <!-- Best Attendance App for Employees -->
         <div class="testimonial-block">
             <h3>📱 Best Attendance App for Employees in India</h3>
             <p>For businesses of any size, a paperless attendance system is key. Our Mobile Attendance App offers a smooth way to track and manage attendance for both employers and employees.</p>
         </div>
-
+        <br>
         <!-- FAQ Section with ticks -->
         <div id="faq" class="faq-section">
             <h2 class="section-title">Mobile Attendance App FAQs</h2>
@@ -657,7 +1055,7 @@
                 <div class="faq-item"><i class="fas fa-check-circle"></i> <span>Can employees use the app from both Android and iOS devices?</span></div>
             </div>
         </div>
-
+        <br>
         <!-- Schedule Now appointment form (fields exactly like original image request) -->
         <div id="schedule" class="schedule-card">
             <div class="schedule-left">
@@ -729,22 +1127,29 @@
                 </ul>
 
                 <p style="margin-top: 0.5rem; font-size:0.8rem;">
-                  <strong>Branch Address:</strong><br>
-                    <a href="https://www.google.com/maps/place/360,+Neeladri+Rd,+Karuna+Nagar,+Electronic+City+Phase+I,+Electronic+City,+Doddathoguru,+Karnataka+560100/"
-                       target="_blank"
-                       style="color:#4a627a; text-decoration:none;">
-                             360, Neeladri Rd, Electronic City Phase I, Bengaluru – 560100
-                    </a>
-                </p>
+    <strong>Branch Address:</strong><br>
 
-                <p style="margin-top: 0.5rem; font-size:0.8rem;">
-                  <strong>New Branch:</strong><br>
-                    <a href="https://www.google.com/maps/search/Mukti+Complex,+Near+Prashaskiya+Bhawan,+Baramati/"
-                       target="_blank"
-                       style="color:#4a627a; text-decoration:none;">
-                             Mukti Complex, Near Prashaskiya Bhawan, Baramati
-                    </a>
-                </p>
+    <a href="https://www.google.com/maps/place/360,+Neeladri+Rd,+Karuna+Nagar,+Electronic+City+Phase+I,+Electronic+City,+Doddathoguru,+Karnataka+560100/"
+       target="_blank"
+       style="color:#ffc107; text-decoration:none; font-weight:500;">
+
+        <i class="fas fa-map-marker-alt"></i>
+        360, Neeladri Rd, Electronic City Phase I, Bengaluru – 560100
+    </a>
+</p>
+
+
+<p style="margin-top: 0.8rem; font-size:0.8rem;">
+    <strong>New Branch:</strong><br>
+
+    <a href="https://www.google.com/maps/search/Mukti+Complex,+Near+Prashaskiya+Bhawan,+Baramati/"
+       target="_blank"
+       style="color:#ffc107; text-decoration:none; font-weight:500;">
+
+        <i class="fas fa-map-marker-alt"></i>
+        Mukti Complex, Near Prashaskiya Bhawan, Baramati
+    </a>
+</p>
 
                 <p style="margin-top:0.5rem;">
                     <i class="fas fa-download"></i> Available in English & Hindi
