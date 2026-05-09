@@ -800,7 +800,7 @@
     <div class="container">
         <div class="logo">
             <img src="src/logo-dGMmyYLC.png" alt="Aparaitech Logo">
-            <span>APARAITECH SOFTWARE</span>
+            <span>APARAITECH SOFTWARE PRIVATE LIMITED</span>
         </div>
         <div class="nav-links">
             <a href="#features">Features</a>
@@ -1060,39 +1060,102 @@
         </div>
         <br>
         <!-- Schedule Now appointment form (fields exactly like original image request) -->
-        <div id="schedule" class="schedule-card">
-            <div class="schedule-left">
-                <div class="badge-scale"><i class="fas fa-calendar-check"></i> Schedule Now</div>
-                <h2>Our system is built for scaling companies with 100+ employees</h2>
-                <p>Get a tailored walkthrough of Aparaitech's intelligent attendance + HRMS suite. From face recognition to payroll integration – we handle it all.</p>
-                <ul style="margin-top: 1.5rem; list-style: none;">
-                    <li><i class="fas fa-check-circle"></i> Real-time analytics & reports</li>
-                    <li><i class="fas fa-fingerprint"></i> Biometric + face recognition</li>
-                    <li><i class="fas fa-headset"></i> 24/7 expert support</li>
-                </ul>
+<div id="schedule" class="schedule-card">
+    <div class="schedule-left">
+        <div class="badge-scale"><i class="fas fa-calendar-check"></i> Schedule Now</div>
+        <h2>Our system is built for scaling companies with 100+ employees</h2>
+        <p>Get a tailored walkthrough of Aparaitech's intelligent attendance + HRMS suite. From face recognition to payroll integration – we handle it all.</p>
+        <ul style="margin-top: 1.5rem; list-style: none;">
+            <li><i class="fas fa-check-circle"></i> Real-time analytics & reports</li>
+            <li><i class="fas fa-fingerprint"></i> Biometric + face recognition</li>
+            <li><i class="fas fa-headset"></i> 24/7 expert support</li>
+        </ul>
+    </div>
+    <div class="schedule-form">
+        <form id="appointmentForm">
+            <!-- Added name="companyName" to match sheet column -->
+            <input type="text" id="companyName" name="companyName" placeholder="Company Name *" required>
+            
+            <!-- Added name="contactName" -->
+            <input type="text" id="contactName" name="contactName" placeholder="Contact Name *" required>
+            
+            <!-- Added name="contactNumber" -->
+            <input type="tel" id="contactNumber" name="contactNumber" placeholder="Contact Number *" required>
+            
+            <!-- Added name="contactEmail" -->
+            <input type="email" id="contactEmail" name="contactEmail" placeholder="Contact Email *" required>
+            
+            <!-- Added name="employeeCount" -->
+            <select id="employeeCount" name="employeeCount" required>
+                <option value="" disabled selected>Select Number of employees</option>
+                <option value="1-100">1-100 employees</option>
+                <option value="101-500">101-500 employees</option>
+                <option value="501-1000">501-1000 employees</option>
+                <option value="1000+">1000+ employees</option>
+            </select>
+            
+            <!-- Added name="message" -->
+            <textarea id="message" name="message" rows="3" placeholder="Message *" required></textarea>
+            
+            <div class="checkbox-appoint">
+                <!-- Added name="termsAppoint" (optional, not sent to sheet) -->
+                <input type="checkbox" id="termsAppoint" name="termsAppoint" required>
+                <label>I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</label>
             </div>
-            <div class="schedule-form">
-                <form id="appointmentForm">
-                    <input type="text" id="companyName" placeholder="Company Name *" required>
-                    <input type="text" id="contactName" placeholder="Contact Name *" required>
-                    <input type="tel" id="contactNumber" placeholder="Contact Number *" required>
-                    <input type="email" id="contactEmail" placeholder="Contact Email *" required>
-                    <select id="employeeCount" required>
-                        <option value="" disabled selected>Select Number of employees</option>
-                        <option value="1-100">1-100 employees</option>
-                        <option value="101-500">101-500 employees</option>
-                        <option value="501-1000">501-1000 employees</option>
-                        <option value="1000+">1000+ employees</option>
-                    </select>
-                    <textarea id="message" rows="3" placeholder="Message *" required></textarea>
-                    <div class="checkbox-appoint">
-                        <input type="checkbox" id="termsAppoint" required>
-                        <label>I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</label>
-                    </div>
-                    <button type="submit" class="btn-send"><i class="fas fa-paper-plane"></i> Send Request</button>
-                </form>
-            </div>
-        </div>
+            <button type="submit" class="btn-send"><i class="fas fa-paper-plane"></i> Send Request</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    // 🔴 IMPORTANT: Replace this URL with your actual Google Apps Script Web App URL
+    const GOOGLE_SHEET_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbxUHxhV6QTU3-FpLshvq0c7OnL4Hzo5zwu1zZv13JNnfadRcstdAXY0OoUcZFDR4QLUdQ/exec';
+
+    document.getElementById('appointmentForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        // Collect form data (only fields with 'name' attribute)
+        const formData = new FormData(this);
+        const formObject = {};
+        formData.forEach((value, key) => {
+            // Skip the checkbox 'termsAppoint' – it's not in your sheet columns
+            if (key !== 'termsAppoint') {
+                formObject[key] = value;
+            }
+        });
+
+        // Disable submit button to prevent double submission
+        const submitBtn = this.querySelector('.btn-send');
+        const originalText = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+        submitBtn.disabled = true;
+
+        try {
+            const response = await fetch(GOOGLE_SHEET_WEBHOOK_URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams(formObject).toString()
+            });
+
+            const result = await response.json();
+
+            if (result.result === 'success') {
+                alert('✅ Request sent successfully! We will contact you soon.');
+                this.reset(); // Clear all fields
+            } else {
+                throw new Error(result.message || 'Server error');
+            }
+        } catch (error) {
+            console.error('Submission error:', error);
+            alert('❌ Something went wrong. Please try again later.');
+        } finally {
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+        }
+    });
+</script>
     </div>
 </main>
 
