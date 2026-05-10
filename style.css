@@ -55,8 +55,8 @@ body {
 
 .nav-container {
     max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 2rem;
+    margin: 2rem auto;
+    padding: 0 3rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -67,7 +67,7 @@ body {
 .logo {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 16px;
     font-size: 1.5rem;
     font-weight: 800;
     background: linear-gradient(135deg, #60a5fa, #22d3ee);
