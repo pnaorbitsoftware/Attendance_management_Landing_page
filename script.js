@@ -1,66 +1,101 @@
-// Wait for DOM to fully load
-document.addEventListener('DOMContentLoaded', function() {
-    console.log("JavaScript loaded successfully!");
-    
-    // Get form element
-    const form = document.getElementById('demoForm');
-    const messageDiv = document.getElementById('message');
-    
-    // Add submit event listener
-    if(form) {
-        form.addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent page refresh
-            
-            // Get form values
-            const fullName = document.getElementById('fullName').value;
-            const email = document.getElementById('email').value;
-            
-            // Validate
-            if(!fullName || !email) {
-                messageDiv.innerHTML = '<span style="color: #ef4444;">Please fill all fields!</span>';
-                return;
-            }
-            
-            // Success message
-            messageDiv.innerHTML = `<span style="color: #22c55e;">✅ Thanks ${fullName}! We'll contact you at ${email}</span>`;
-            
-            // Clear form
-            form.reset();
-            
-            // Optional: Save to localStorage
-            const demoData = {
-                name: fullName,
-                email: email,
-                timestamp: new Date().toISOString()
-            };
-            
-            let requests = JSON.parse(localStorage.getItem('demoRequests') || '[]');
-            requests.push(demoData);
-            localStorage.setItem('demoRequests', JSON.stringify(requests));
-            
-            console.log("Form submitted:", demoData);
-        });
+
+    // toast helper
+    function showToast(msg, isError = false) {
+        let toast = document.createElement('div');
+        toast.innerText = msg;
+        toast.style.position = 'fixed';
+        toast.style.bottom = '25px';
+        toast.style.right = '25px';
+        toast.style.background = isError ? '#d32f2f' : '#1e2a3a';
+        toast.style.color = '#fff';
+        toast.style.padding = '12px 24px';
+        toast.style.borderRadius = '60px';
+        toast.style.zIndex = '999';
+        toast.style.fontWeight = '500';
+        toast.style.boxShadow = '0 8px 20px rgba(0,0,0,0.1)';
+        document.body.appendChild(toast);
+        setTimeout(() => toast.remove(), 3500);
     }
-    
-    // Add animation to elements
-    const container = document.querySelector('.container');
-    if(container) {
-        container.style.animation = 'fadeInUp 0.6s ease';
+
+
+    function toggleProductsMenu(){
+    document.getElementById("productsMenu")
+    .classList.toggle("active");
+}
+
+window.addEventListener("click", function(e){
+
+    const products = document.querySelector(".products-dropdown");
+
+    if(products && !products.contains(e.target)){
+        document.getElementById("productsMenu")
+        .classList.remove("active");
     }
+
 });
 
-// Add CSS animation dynamically
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes fadeInUp {
-        from {
-            opacity: 0;
-            transform: translateY(30px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
+    function toggleCountryMenu(){
+    document.getElementById("countryMenu")
+    .classList.toggle("active");
+}
+
+function selectCountry(name, flagSrc){
+
+    document.getElementById("selectedCountry").innerText = name;
+
+    document.getElementById("selectedFlag").src = flagSrc;
+
+    document.getElementById("countryMenu")
+    .classList.remove("active");
+}
+
+window.addEventListener("click", function(e){
+
+    const dropdown = document.querySelector(".country-dropdown");
+
+    if(!dropdown.contains(e.target)){
+        document.getElementById("countryMenu")
+        .classList.remove("active");
     }
-`;
-document.head.appendChild(style);
+
+});
+
+    // Appointment form handler
+    const appointForm = document.getElementById('appointmentForm');
+    if(appointForm) {
+        appointForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const company = document.getElementById('companyName').value.trim();
+            const cname = document.getElementById('contactName').value.trim();
+            const cnum = document.getElementById('contactNumber').value.trim();
+            const email = document.getElementById('contactEmail').value.trim();
+            const emp = document.getElementById('employeeCount').value;
+            const msg = document.getElementById('message').value.trim();
+            const terms = document.getElementById('termsAppoint').checked;
+
+            if(!company || !cname || !cnum || !email || !emp || !msg || !terms) {
+                showToast('Please fill all fields and accept Terms & Privacy Policy.', true);
+                return;
+            }
+            if(!email.includes('@')) {
+                showToast('Enter a valid email address.', true);
+                return;
+            }
+            showToast(`✅ Thank you ${cname}! Your demo request for ${company} has been sent. Our team will contact you within 24h.`, false);
+            appointForm.reset();
+            document.getElementById('employeeCount').value = '';
+        });
+    }
+
+    // smooth anchor and demo button interactions
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            if(targetId === "#" || targetId === "") return;
+            const targetElement = document.querySelector(targetId);
+            if(targetElement) {
+                e.preventDefault();
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
