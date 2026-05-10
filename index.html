@@ -694,6 +694,42 @@
     margin:3rem 0;
 }
 
+.complete-app-section{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;   /* fixes vertical alignment */
+    
+    gap:4rem;
+
+    background:#f0fdfa;
+    border-radius:40px;
+
+    padding:3rem 4rem;
+    margin:3rem 0;
+
+    min-height:420px; /* keeps both balanced */
+}
+
+.complete-app-text{
+    flex:1;
+}
+
+.complete-app-image{
+    flex:1;
+
+    display:flex;
+    justify-content:center;
+    align-items:center; /* centers image */
+}
+
+.complete-app-image img{
+    width:100%;
+    max-width:1000px;
+    height:auto;
+
+    object-fit:contain;
+}
+
 .app-image-box img{
     width:100%;
     max-width:480px;
@@ -703,6 +739,8 @@
 
     animation: zoomInOut 3s ease-in-out infinite;
 }
+
+
 
 @keyframes zoomInOut{
     0%{
@@ -1375,23 +1413,26 @@
 </div>
         </div>
         <br>
-        <!-- A Complete Mobile App to Manage Attendance + bullet list -->
-        <div style="background: #fefcf5; border-radius: 48px; padding: 2rem; margin: 2rem 0;">
-            <div style="display: flex; flex-wrap: wrap; gap: 2rem; align-items:center; justify-content: space-between;">
-                <div>
-                    <h2 style="font-size: 1.8rem;">A Complete Mobile App to Manage Attendance</h2>
-                    <ul style="margin-top: 1rem; list-style: none;">
-                        <li><i class="fas fa-check-circle" style="color:#0f766e;"></i> Tablet app for office use</li>
-                        <li><i class="fas fa-check-circle" style="color:#0f766e;"></i> Available on iOS and Android</li>
-                        <li><i class="fas fa-check-circle" style="color:#0f766e;"></i> Available in English & Hindi</li>
-                        <li><i class="fas fa-check-circle" style="color:#0f766e;"></i> No need for costly fingerprint/face scanners</li>
-                        <li><i class="fas fa-check-circle" style="color:#0f766e;"></i> No spare parts worries & easy installation</li>
-                        <li><i class="fas fa-check-circle" style="color:#0f766e;"></i> No technical required for repairs</li>
-                    </ul>
-                </div>
-                <div><i class="fas fa-download" style="font-size: 5rem; color:#0f766e;"></i><br><span>Download Now</span></div>
-            </div>
-        </div>
+<div class="complete-app-section">
+
+    <div class="complete-app-text">
+        <h2>A Complete Mobile App to Manage Attendance</h2>
+
+        <ul>
+            <li><i class="fas fa-check-circle"></i> Tablet app for office use</li>
+            <li><i class="fas fa-check-circle"></i> Available on iOS and Android</li>
+            <li><i class="fas fa-check-circle"></i> Available in English & Hindi</li>
+            <li><i class="fas fa-check-circle"></i> No need for costly fingerprint/face scanners</li>
+            <li><i class="fas fa-check-circle"></i> No spare parts worries & easy installation</li>
+            <li><i class="fas fa-check-circle"></i> No technical required for repairs</li>
+        </ul>
+    </div>
+
+    <div class="complete-app-image">
+        <img src="src/single_screen.png" alt="Mobile App">
+    </div>
+
+</div>
         <br>
         <!-- Best Attendance App for Employees -->
         <div class="testimonial-block">
