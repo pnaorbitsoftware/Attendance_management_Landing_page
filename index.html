@@ -43,13 +43,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: 1rem;
 }
 
 /* Logo */
 .logo {
     display: flex;
+    flex-shrink:0;
     align-items: center;
     gap: 10px;
 
@@ -82,12 +83,19 @@
 /* Navigation */
 .nav-links {
     display: flex;
-    gap: 2rem;
+    gap:1.6rem;
     align-items: center;
-    flex-wrap: wrap;
+    margin-left:2.5rem;
+    margin-left:auto; /* pushes navbar right */
+    flex-wrap: nowrap;
 }
 
 .nav-links a {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    height:54px;
+    white-space: nowrap;
     text-decoration: none;
     color: #1f3b4c;
     font-weight: 700;   /* Bold */
@@ -107,6 +115,8 @@
 .country-btn{
     display:flex;
     align-items:center;
+    justify-content:center;
+    height:54px;
     gap:10px;
 
     background:#fff;
@@ -206,7 +216,9 @@
 /* Outline Button */
 .btn-outline {
     border: 1px solid #1e6faf;
-    padding: 8px 20px;
+    height:48px;
+    padding:0 24px;
+    margin-left:0.8rem;
     border-radius: 40px;
     color: white !important;
     font-weight: 600;
@@ -217,7 +229,8 @@
 .btn-primary {
     background: linear-gradient(135deg,#1e6faf);
     color: white !important;
-    padding: 8px 24px;
+    height:48px;
+    padding:0 24px;
     border-radius: 40px;
     font-weight: 600;
     transition: all 0.3s ease;
@@ -481,6 +494,9 @@
 
     display:flex;
     align-items:center;
+    justify-content:center;
+    white-space: nowrap;
+    height:54px;
     gap:8px;
 
     
@@ -974,7 +990,7 @@
     <div class="container">
         <div class="logo">
             <img src="src/logo-dGMmyYLC.png" alt="Aparaitech Logo">
-            <span>APARAITECH</span>
+            <span>APARAITECH SOFTWARE</span>
         </div>
         <div class="nav-links">
 
@@ -987,11 +1003,11 @@
         </button>
 
         <div class="products-menu" id="productsMenu">
-            <a href="#">HR Software</a>
-            <a href="#">Attendance System</a>
-            <a href="#">Payroll Software</a>
-            <a href="#">Leave Management</a>
-            <a href="#">Performance Tracking</a>
+            <a href="https://lms.aparaitech.org/">LMS Platform for Institutes</a>
+            <a href="https://interior.aparaitech.org/">Interior Design</a>
+            <a href="https://empattendance.aparaitech.org/">Employee Attendance System</a>
+            <a href="https://svpmalumni.aparaitech.org/">Alumni Network Portal</a>
+            <a href="https://test.aparaitech.org/">Test Portal</a>
         </div>
 
     </div>
