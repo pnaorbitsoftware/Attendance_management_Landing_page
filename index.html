@@ -43,6 +43,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0 3rem;
     flex-wrap: nowrap;
     gap: 1rem;
 }
@@ -52,12 +53,13 @@
     display: flex;
     flex-shrink:0;
     align-items: center;
+    
     gap: 10px;
 
     font-size: 1.1rem;   /* reduced size */
     font-weight: 800;
 
-    background: linear-gradient(135deg, #0f2b3d, #1e6faf);
+    background: linear-gradient(135deg, #0f2b3d, #0f766e);
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
@@ -75,7 +77,7 @@
 /* If icon logo exists */
 .logo i {
     font-size: 1.1rem;
-    color: #1e6faf;
+    color: #0f766e;
     background: none;
     margin-right: 2px;
 }
@@ -83,10 +85,12 @@
 /* Navigation */
 .nav-links {
     display: flex;
-    gap:1.6rem;
     align-items: center;
-    margin-left:2.5rem;
-    margin-left:auto; /* pushes navbar right */
+
+    gap: 2.3rem;   /* increased spacing */
+
+    margin-left: auto;
+
     flex-wrap: nowrap;
 }
 
@@ -103,7 +107,7 @@
 }
 
 .nav-links a:hover {
-    color: #1e6faf;
+    color: #0f766e;
 }
 
 
@@ -137,12 +141,12 @@
 }
 
 .country-btn:hover{
-    border-color:#1e6faf;
+    border-color:#0f766e;
     box-shadow:0 6px 20px rgba(30,111,175,0.08);
 }
 
 .country-btn .fa-globe{
-    color:#1e6faf;
+    color:#0f766e;
 }
 
 .arrow-icon{
@@ -195,7 +199,7 @@
 
 .country-menu div:hover{
     background:#f5f9ff;
-    color:#1e6faf;
+    color:#0f766e;
 }
 
 /* Flag Images */
@@ -215,19 +219,20 @@
 }
 /* Outline Button */
 .btn-outline {
-    border: 1px solid #1e6faf;
+    border: 1px solid #0f766e;
     height:48px;
     padding:0 24px;
     margin-left:0.8rem;
     border-radius: 40px;
     color: white !important;
     font-weight: 600;
-    background: #1e6faf;
+    background: #0f766e;
+
 }
 
 /* Primary Button */
 .btn-primary {
-    background: linear-gradient(135deg,#1e6faf);
+    background: linear-gradient(135deg,#0f766e);
     color: white !important;
     height:48px;
     padding:0 24px;
@@ -237,7 +242,7 @@
 }
 
 .btn-primary:hover {
-    background: #0e5a96;
+    background: #134e4a;
     transform: translateY(-2px);
 }
 
@@ -247,7 +252,7 @@
 
 /* Top Hero Banner */
 .top-hero-banner{
-    background:linear-gradient(90deg,#163f78,#5f769d,#d8dbe1);
+    background:linear-gradient(90deg,#134e4a,#0f766e,#99f6e4);
     color:#ffffff;
 
     display:grid;
@@ -275,7 +280,7 @@
 }
 
 .top-hero-left h1 span{
-    color:#ffc107;
+    color:#f59e0b;
 }
 
 /* Attendance Sections */
@@ -307,7 +312,7 @@
 .know-more-btn{
     margin-top:2rem;
 
-    background:#ffc107;
+    background:#f59e0b;
     color:#0a2b4e;
 
     border:none;
@@ -335,7 +340,7 @@
 }
 
 .hero-stats-inline h2{
-    color:#ffc107;
+    color:#f59e0b;
     font-size:2rem;
     font-weight:800;
 }
@@ -347,7 +352,7 @@
 
 /* Button */
 .hero-demo-btn{
-    background:#ffc107;
+    background:#f59e0b;
     border:none;
     padding:14px 30px;
     border-radius:8px;
@@ -420,7 +425,7 @@
         .stat-number {
             font-size: 2.2rem;
             font-weight: 800;
-            color: #1e6faf;
+            color: #0f766e;
         }
 
         .stat-label {
@@ -447,7 +452,7 @@
         }
 
         .hero .highlight {
-            color: #1e6faf;
+            color: #0f766e;
         }
 
         .hero p {
@@ -457,7 +462,7 @@
         }
 
         .phone-mock {
-            background: linear-gradient(145deg, #eef4fc, #ffffff);
+            background: linear-gradient(145deg, #f0fdfa, #ffffff);
             border-radius: 48px;
             padding: 2rem;
             text-align: center;
@@ -467,7 +472,7 @@
 
         .phone-mock i {
             font-size: 7rem;
-            color: #1e6faf;
+            color: #0f766e;
             margin: 0 0.5rem;
         }
 
@@ -509,7 +514,7 @@
 }
 
 .products-btn:hover{
-    color:#1e6faf;
+    color:#0f766e;
 }
 
 .products-menu{
@@ -549,7 +554,7 @@
 
 .products-menu a:hover{
     background:#f5f9ff;
-    color:#1e6faf;
+    color:#0f766e;
 }
 
 /* Features Main Section */
@@ -612,11 +617,11 @@
 
     margin-bottom:1.2rem;
 
-    background:linear-gradient(135deg,#1e6faf,#ffc107);
+    background:linear-gradient(135deg,#0f766e,#f59e0b);
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
 
-    filter:drop-shadow(0 3px 6px rgba(30,111,175,0.12));
+    filter:drop-shadow(0 3px 6px rgba(15,118,110,0.12));
 
     transition:all 0.3s ease;
 }
@@ -648,15 +653,32 @@
 }
 
 
-        .two-column-layout {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            background: #fbfdff;
-            border-radius: 40px;
-            margin: 3rem 0;
-            align-items: center;
-        }
+        .two-column-layout{
+    display:grid;
+    grid-template-columns: 1.1fr 0.9fr;
+
+    align-items:center;
+    gap:7rem;
+
+    background:#fbfdff;
+
+    border-radius:40px;
+    padding:3rem 4rem;
+
+    margin:3rem 0;
+}
+
+.app-image-box img{
+    width:100%;
+    max-width:280px;
+
+    height:auto;
+    object-fit:contain;
+
+    display:block;
+
+    transform: scale(0.95);
+}
 
         .app-details-list {
             list-style: none;
@@ -671,7 +693,7 @@
         }
 
         .app-details-list li i {
-            color: #1e6faf;
+            color: #0f766e;
             width: 24px;
         }
 
@@ -748,7 +770,7 @@
             font-weight: 600;
             display: inline-block;
             margin-bottom: 1rem;
-            color: #1e6faf;
+            color: #0f766e;
         }
 
         .schedule-form input, .schedule-form select, .schedule-form textarea {
@@ -786,7 +808,7 @@
 
     cursor:pointer;
 
-    accent-color:#1e6faf;
+    accent-color:#0f766e;
 
     flex-shrink:0;
 }
@@ -799,17 +821,17 @@
 
 /* Links */
 .checkbox-appoint label a{
-    color:#1e6faf;
+    color:#0f766e;
     text-decoration:none;
     font-weight:500;
 }
 
 .checkbox-appoint label a:hover{
-    color:#ffc107;
+    color:#f59e0b;
 }
 
         .btn-send {
-            background: #1e6faf;
+            background: #0f766e;
             width: 100%;
             padding: 12px;
             border-radius: 40px;
@@ -822,7 +844,7 @@
 
 /* Premium Footer */
 .footer{
-    background:#1f3f75;
+    background:#134e4a;
     color:#ffffff;
     border-radius:0;
     padding:4rem 2rem 2rem;
@@ -878,13 +900,13 @@
 }
 
 .footer-col a:hover{
-    color:#ffc107;
+    color:#f59e0b;
 }
 
 /* Contact icons */
 .footer-col i{
     margin-right:8px;
-    color:#ffc107;
+    color:#f59e0b;
 }
 
 /* Social icons */
@@ -950,7 +972,7 @@
 }
 
 .footer-bottom a:hover{
-    color:#ffc107;
+    color:#f59e0b;
 }
 
 /* Mobile */
@@ -1263,12 +1285,15 @@
                     <span class="btn-primary" style="display:inline-block; background:#000; padding: 8px 20px;"><i class="fab fa-google-play"></i> Google Play</span>
                 </div>
             </div>
-            <div style="background: #eef4fc; border-radius: 32px; padding: 2rem; text-align:center;">
-                <i class="fas fa-chart-simple" style="font-size: 4rem; color:#1e6faf;"></i>
-                <i class="fas fa-fingerprint" style="font-size: 4rem; margin:0 0.5rem;"></i>
-                <p><strong>Check Attendance Logs at Anywhere, Anytime</strong><br>Employees can easily review attendance logs, helping with effective planning.</p>
-                <div style="margin-top:1rem;"><i class="fas fa-star"></i> Kruve team</div>
-            </div>
+            
+    <div class="app-image-box">
+    <img 
+        src="src/mobile_pages.png" 
+        alt="Aparaitech Attendance App"
+    >
+</div>
+
+</div>
         </div>
         <br>
         <!-- A Complete Mobile App to Manage Attendance + bullet list -->
@@ -1277,15 +1302,15 @@
                 <div>
                     <h2 style="font-size: 1.8rem;">A Complete Mobile App to Manage Attendance</h2>
                     <ul style="margin-top: 1rem; list-style: none;">
-                        <li><i class="fas fa-check-circle" style="color:#1e6faf;"></i> Tablet app for office use</li>
-                        <li><i class="fas fa-check-circle" style="color:#1e6faf;"></i> Available on iOS and Android</li>
-                        <li><i class="fas fa-check-circle" style="color:#1e6faf;"></i> Available in English & Hindi</li>
-                        <li><i class="fas fa-check-circle" style="color:#1e6faf;"></i> No need for costly fingerprint/face scanners</li>
-                        <li><i class="fas fa-check-circle" style="color:#1e6faf;"></i> No spare parts worries & easy installation</li>
-                        <li><i class="fas fa-check-circle" style="color:#1e6faf;"></i> No technical required for repairs</li>
+                        <li><i class="fas fa-check-circle" style="color:#0f766e;"></i> Tablet app for office use</li>
+                        <li><i class="fas fa-check-circle" style="color:#0f766e;"></i> Available on iOS and Android</li>
+                        <li><i class="fas fa-check-circle" style="color:#0f766e;"></i> Available in English & Hindi</li>
+                        <li><i class="fas fa-check-circle" style="color:#0f766e;"></i> No need for costly fingerprint/face scanners</li>
+                        <li><i class="fas fa-check-circle" style="color:#0f766e;"></i> No spare parts worries & easy installation</li>
+                        <li><i class="fas fa-check-circle" style="color:#0f766e;"></i> No technical required for repairs</li>
                     </ul>
                 </div>
-                <div><i class="fas fa-download" style="font-size: 5rem; color:#1e6faf;"></i><br><span>Download Now</span></div>
+                <div><i class="fas fa-download" style="font-size: 5rem; color:#0f766e;"></i><br><span>Download Now</span></div>
             </div>
         </div>
         <br>
@@ -1378,25 +1403,14 @@
                     <li><a href="https://x.com/Aparaitech" target="_blank"><i class="fab fa-x-twitter"></i></a></li>
                 </ul>
 
-                <p style="margin-top: 0.5rem; font-size:0.8rem;">
-    <strong>Branch Address:</strong><br>
-
-    <a href="https://www.google.com/maps/place/360,+Neeladri+Rd,+Karuna+Nagar,+Electronic+City+Phase+I,+Electronic+City,+Doddathoguru,+Karnataka+560100/"
-       target="_blank"
-       style="color:#ffc107; text-decoration:none; font-weight:500;">
-
-        <i class="fas fa-map-marker-alt"></i>
-        360, Neeladri Rd, Electronic City Phase I, Bengaluru – 560100
-    </a>
-</p>
-
+                
 
 <p style="margin-top: 0.8rem; font-size:0.8rem;">
     <strong>New Branch:</strong><br>
 
     <a href="https://www.google.com/maps/search/Mukti+Complex,+Near+Prashaskiya+Bhawan,+Baramati/"
        target="_blank"
-       style="color:#ffc107; text-decoration:none; font-weight:500;">
+       style="color:#f59e0b; text-decoration:none; font-weight:500;">
 
         <i class="fas fa-map-marker-alt"></i>
         Mukti Complex, Near Prashaskiya Bhawan, Baramati
