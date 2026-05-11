@@ -1453,40 +1453,193 @@
             </div>
         </div>
         <br>
-        <!-- Schedule Now appointment form (fields exactly like original image request) -->
-        <div id="schedule" class="schedule-card">
-            <div class="schedule-left">
-                <div class="badge-scale"><i class="fas fa-calendar-check"></i> Schedule Now</div>
-                <h2>Our system is built for scaling companies with 100+ employees</h2>
-                <p>Get a tailored walkthrough of Aparaitech's intelligent attendance + HRMS suite. From face recognition to payroll integration – we handle it all.</p>
-                <ul style="margin-top: 1.5rem; list-style: none;">
-                    <li><i class="fas fa-check-circle"></i> Real-time analytics & reports</li>
-                    <li><i class="fas fa-fingerprint"></i> Biometric + face recognition</li>
-                    <li><i class="fas fa-headset"></i> 24/7 expert support</li>
-                </ul>
+ <!-- Schedule Now appointment form with Google Sheet integration + success popup -->
+<style>
+    /* Popup toast styling */
+    .demo-toast {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background: #1f8a4c;
+        color: white;
+        padding: 14px 24px;
+        border-radius: 60px;
+        font-family: 'Inter', sans-serif;
+        font-weight: 500;
+        font-size: 0.95rem;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        opacity: 0;
+        transform: translateX(30px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        pointer-events: none;
+    }
+    .demo-toast.show {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    .demo-toast i {
+        font-size: 1.3rem;
+    }
+</style>
+
+<div id="schedule" class="schedule-card">
+    <div class="schedule-left">
+        <div class="badge-scale"><i class="fas fa-calendar-check"></i> Schedule Now</div>
+        <h2>Our system is built for scaling companies with 100+ employees</h2>
+        <p>Get a tailored walkthrough of Aparaitech's intelligent attendance + HRMS suite. From face recognition to payroll integration – we handle it all.</p>
+        <ul style="margin-top: 1.5rem; list-style: none;">
+            <li><i class="fas fa-check-circle"></i> Real-time analytics & reports</li>
+            <li><i class="fas fa-fingerprint"></i> Biometric + face recognition</li>
+            <li><i class="fas fa-headset"></i> 24/7 expert support</li>
+        </ul>
+    </div>
+    <div class="schedule-form">
+        <form id="appointmentForm">
+            <input type="text" id="companyName" placeholder="Company Name *" required>
+            <input type="text" id="contactName" placeholder="Contact Name *" required>
+            <input type="tel" id="contactNumber" placeholder="Contact Number *" required>
+            <input type="email" id="contactEmail" placeholder="Contact Email *" required>
+            <select id="employeeCount" required>
+                <option value="" disabled selected>Select Number of employees</option>
+                <option value="1-100">1-100 employees</option>
+                <option value="101-500">101-500 employees</option>
+                <option value="501-1000">501-1000 employees</option>
+                <option value="1000+">1000+ employees</option>
+            </select>
+            <textarea id="message" rows="3" placeholder="Message *" required></textarea>
+            <div class="checkbox-appoint">
+                <input type="checkbox" id="termsAppoint" required>
+                <label>I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</label>
             </div>
-            <div class="schedule-form">
-                <form id="appointmentForm">
-                    <input type="text" id="companyName" placeholder="Company Name *" required>
-                    <input type="text" id="contactName" placeholder="Contact Name *" required>
-                    <input type="tel" id="contactNumber" placeholder="Contact Number *" required>
-                    <input type="email" id="contactEmail" placeholder="Contact Email *" required>
-                    <select id="employeeCount" required>
-                        <option value="" disabled selected>Select Number of employees</option>
-                        <option value="1-100">1-100 employees</option>
-                        <option value="101-500">101-500 employees</option>
-                        <option value="501-1000">501-1000 employees</option>
-                        <option value="1000+">1000+ employees</option>
-                    </select>
-                    <textarea id="message" rows="3" placeholder="Message *" required></textarea>
-                    <div class="checkbox-appoint">
-                        <input type="checkbox" id="termsAppoint" required>
-                        <label>I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</label>
-                    </div>
-                    <button type="submit" class="btn-send"><i class="fas fa-paper-plane"></i> Send Request</button>
-                </form>
-            </div>
-        </div>
+            <button type="submit" class="btn-send"><i class="fas fa-paper-plane"></i> Send Request</button>
+            <div id="formStatus" style="margin-top: 12px; font-size: 0.85rem; text-align: center;"></div>
+        </form>
+    </div>
+</div>
+
+<script>
+    (function() {
+        // 🔧 IMPORTANT: Replace this URL with your own Google Apps Script Web App URL
+        const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzcGV07KRyolwB8XbTxixdZZryKMVaXccH_Oe0SLPdxru0JP8ZH4OqJoNGpN2O2BJpAYg/exec";
+
+        const form = document.getElementById('appointmentForm');
+        const statusDiv = document.getElementById('formStatus');
+
+        // Function to show popup toast
+        function showSuccessPopup(message) {
+            // Remove any existing toast
+            const existingToast = document.querySelector('.demo-toast');
+            if(existingToast) existingToast.remove();
+
+            const toast = document.createElement('div');
+            toast.className = 'demo-toast';
+            toast.innerHTML = `<i class="fas fa-check-circle"></i> ${message}`;
+            document.body.appendChild(toast);
+            // Trigger reflow then add show class
+            setTimeout(() => toast.classList.add('show'), 10);
+            // Auto remove after 3 seconds
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const companyName = document.getElementById('companyName').value.trim();
+            const contactName = document.getElementById('contactName').value.trim();
+            const contactNumber = document.getElementById('contactNumber').value.trim();
+            const contactEmail = document.getElementById('contactEmail').value.trim();
+            const employeeCount = document.getElementById('employeeCount').value;
+            const message = document.getElementById('message').value.trim();
+            const termsChecked = document.getElementById('termsAppoint').checked;
+
+            if (!companyName || !contactName || !contactNumber || !contactEmail || !employeeCount || !message) {
+                statusDiv.innerHTML = '<span style="color:#d9534f;">⚠️ Please fill all required fields.</span>';
+                return;
+            }
+            if (!termsChecked) {
+                statusDiv.innerHTML = '<span style="color:#d9534f;">⚠️ You must agree to the Terms of Service & Privacy Policy.</span>';
+                return;
+            }
+            if (!/^\S+@\S+\.\S+$/.test(contactEmail)) {
+                statusDiv.innerHTML = '<span style="color:#d9534f;">⚠️ Enter a valid email address.</span>';
+                return;
+            }
+
+            const submitBtn = form.querySelector('.btn-send');
+            const originalBtnHTML = submitBtn.innerHTML;
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Sending...';
+            statusDiv.innerHTML = '';
+
+            const formData = {
+                timestamp: new Date().toISOString(),
+                companyName,
+                contactName,
+                contactNumber,
+                contactEmail,
+                employeeCount,
+                message,
+                source: "demo_booking_form"
+            };
+
+            try {
+                await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+
+                // ✅ Success: show both inline message + popup
+                statusDiv.innerHTML = '<span style="color:#2c7a4a;">✅ Thank you! Your demo request has been recorded. Our team will contact you soon.</span>';
+                showSuccessPopup('Demo request submitted successfully!');
+                form.reset();
+                document.getElementById('termsAppoint').checked = false;
+                document.getElementById('employeeCount').selectedIndex = 0;
+
+            } catch (error) {
+                console.error(error);
+                statusDiv.innerHTML = '<span style="color:#d9534f;">❌ Network error. Please try again later.</span>';
+                showSuccessPopup('❌ Submission failed. Please try again.'); // error popup
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalBtnHTML;
+            }
+        });
+    })();
+</script>
+
+<!-- 
+    🟢 GOOGLE APPS SCRIPT BACKEND (copy into your Sheet's Apps Script):
+    function doPost(e) {
+      try {
+        const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+        const data = JSON.parse(e.postData.contents);
+        sheet.appendRow([
+          data.timestamp || new Date().toISOString(),
+          data.companyName,
+          data.contactName,
+          data.contactNumber,
+          data.contactEmail,
+          data.employeeCount,
+          data.message,
+          data.source
+        ]);
+        return ContentService.createTextOutput(JSON.stringify({result: "success"}))
+              .setMimeType(ContentService.MimeType.JSON);
+      } catch(err) {
+        return ContentService.createTextOutput(JSON.stringify({error: err.toString()}))
+              .setMimeType(ContentService.MimeType.JSON);
+      }
+    }
+-->
     </div>
 </main>
 
