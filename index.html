@@ -43,28 +43,18 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 3rem;
+    padding: 0 1rem;
     flex-wrap: nowrap;
     gap: 1rem;
 }
 
 /* Logo */
-.logo {
-    display: flex;
-    flex-shrink:0;
-    align-items: center;
-    
-    gap: 10px;
-
-    font-size: 1.1rem;   /* reduced size */
+.logo{
+    display:flex;
+    align-items:center;
+    gap:8px; /* was 10px */
     font-weight: 800;
-
-    background: linear-gradient(135deg, #0f2b3d, #0f766e);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-
-    letter-spacing: -0.3px;
+    margin-left:0;
 }
 
 /* If image logo exists */
@@ -290,6 +280,42 @@
     padding:4rem 2rem;
 }
 
+/* App Store + Play Store buttons */
+.store-buttons{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-top:1rem;
+}
+
+.store-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+
+    background:#111827;
+    color:#ffffff;
+
+    padding:10px 18px;
+
+    border-radius:40px;
+
+    font-size:0.85rem;
+    font-weight:600;
+
+    text-decoration:none;
+
+    transition:0.3s ease;
+}
+
+.store-btn i{
+    font-size:1rem;
+}
+
+.store-btn:hover{
+    transform:translateY(-2px);
+}
+
 /* Titles */
 .attendance-title{
     font-size:2.2rem;
@@ -462,7 +488,7 @@
         }
 
         .phone-mock {
-            background: linear-gradient(145deg, #f0fdfa, #ffffff);
+            background: linear-gradient(145deg, white);
             border-radius: 48px;
             padding: 2rem;
             text-align: center;
@@ -668,16 +694,66 @@
     margin:3rem 0;
 }
 
+.complete-app-section{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;   /* fixes vertical alignment */
+    
+    gap:4rem;
+
+    background:#f0fdfa;
+    border-radius:40px;
+
+    padding:3rem 4rem;
+    margin:3rem 0;
+
+    min-height:420px; /* keeps both balanced */
+}
+
+.complete-app-text{
+    flex:1;
+}
+
+.complete-app-image{
+    flex:1;
+
+    display:flex;
+    justify-content:center;
+    align-items:center; /* centers image */
+}
+
+.complete-app-image img{
+    width:100%;
+    max-width:1000px;
+    height:auto;
+
+    object-fit:contain;
+}
+
 .app-image-box img{
     width:100%;
-    max-width:280px;
-
+    max-width:480px;
     height:auto;
     object-fit:contain;
-
     display:block;
 
-    transform: scale(0.95);
+    animation: zoomInOut 3s ease-in-out infinite;
+}
+
+
+
+@keyframes zoomInOut{
+    0%{
+        transform: scale(1);
+    }
+
+    50%{
+        transform: scale(1.08);
+    }
+
+    100%{
+        transform: scale(1);
+    }
 }
 
         .app-details-list {
@@ -863,6 +939,37 @@
     gap:3rem;
     padding-bottom:2rem;
     border-bottom:1px solid rgba(255,255,255,0.15);
+}
+
+.footer-col1 h4{
+    font-size:1rem;
+    font-weight:700;
+    margin-bottom:1rem;
+    color:#ffffff;
+}
+
+.footer-col1 ul{
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+
+.footer-col1 li{
+    margin-bottom:0.7rem;
+}
+
+.footer-col1 a{
+    text-decoration:none;
+    color:rgba(255,255,255,0.85);
+
+    font-size:0.85rem;
+    font-weight:500;
+
+    transition:none;
+}
+
+.footer-col1 a:hover{
+    color:rgba(255,255,255,0.85);
 }
 
 /* Headings */
@@ -1156,10 +1263,11 @@
                 </div>
             </div>
             <div class="phone-mock">
-                <i class="fas fa-user-check"></i>
-                <i class="fas fa-map-marker-alt" style="font-size:4rem; margin:0 0.5rem;"></i>
-                <i class="fas fa-camera-retro"></i>
-                <p style="margin-top:1rem;">Face recognition + GPS location capture</p>
+                <div class="phone-frame">
+
+            <img src="src/phone_app.png" alt="Face Recognition App">
+
+        </div>
                 <div class="badge-group">
                     <span style="background:#000; color:white; padding:6px 12px; border-radius:40px; font-size:0.7rem;">App Store</span>
                     <span style="background:#000; color:white; padding:6px 12px; border-radius:40px; font-size:0.7rem;">Google Play</span>
@@ -1280,10 +1388,19 @@
                     <li><i class="fas fa-cloud-upload-alt"></i> Sync with our cloud HR portal – real-time attendance</li>
                     <li><i class="fas fa-video"></i> Anti-Spoofing Technology – prevents fake click-ins via photos/videos</li>
                 </ul>
-                <div class="badge-download">
-                    <span class="btn-primary" style="display:inline-block; background:#000; padding: 8px 20px;"><i class="fab fa-apple"></i> App Store</span>
-                    <span class="btn-primary" style="display:inline-block; background:#000; padding: 8px 20px;"><i class="fab fa-google-play"></i> Google Play</span>
-                </div>
+               <div class="store-buttons">
+
+    <a href="#" class="store-btn">
+        <i class="fab fa-apple"></i>
+        App Store
+    </a>
+
+    <a href="#" class="store-btn">
+        <i class="fab fa-google-play"></i>
+        Google Play
+    </a>
+
+</div>
             </div>
             
     <div class="app-image-box">
@@ -1296,23 +1413,26 @@
 </div>
         </div>
         <br>
-        <!-- A Complete Mobile App to Manage Attendance + bullet list -->
-        <div style="background: #fefcf5; border-radius: 48px; padding: 2rem; margin: 2rem 0;">
-            <div style="display: flex; flex-wrap: wrap; gap: 2rem; align-items:center; justify-content: space-between;">
-                <div>
-                    <h2 style="font-size: 1.8rem;">A Complete Mobile App to Manage Attendance</h2>
-                    <ul style="margin-top: 1rem; list-style: none;">
-                        <li><i class="fas fa-check-circle" style="color:#0f766e;"></i> Tablet app for office use</li>
-                        <li><i class="fas fa-check-circle" style="color:#0f766e;"></i> Available on iOS and Android</li>
-                        <li><i class="fas fa-check-circle" style="color:#0f766e;"></i> Available in English & Hindi</li>
-                        <li><i class="fas fa-check-circle" style="color:#0f766e;"></i> No need for costly fingerprint/face scanners</li>
-                        <li><i class="fas fa-check-circle" style="color:#0f766e;"></i> No spare parts worries & easy installation</li>
-                        <li><i class="fas fa-check-circle" style="color:#0f766e;"></i> No technical required for repairs</li>
-                    </ul>
-                </div>
-                <div><i class="fas fa-download" style="font-size: 5rem; color:#0f766e;"></i><br><span>Download Now</span></div>
-            </div>
-        </div>
+<div class="complete-app-section">
+
+    <div class="complete-app-text">
+        <h2>A Complete Mobile App to Manage Attendance</h2>
+
+        <ul>
+            <li><i class="fas fa-check-circle"></i> Tablet app for office use</li>
+            <li><i class="fas fa-check-circle"></i> Available on iOS and Android</li>
+            <li><i class="fas fa-check-circle"></i> Available in English & Hindi</li>
+            <li><i class="fas fa-check-circle"></i> No need for costly fingerprint/face scanners</li>
+            <li><i class="fas fa-check-circle"></i> No spare parts worries & easy installation</li>
+            <li><i class="fas fa-check-circle"></i> No technical required for repairs</li>
+        </ul>
+    </div>
+
+    <div class="complete-app-image">
+        <img src="src/single_screen.png" alt="Mobile App">
+    </div>
+
+</div>
         <br>
         <!-- Best Attendance App for Employees -->
         <div class="testimonial-block">
@@ -1333,40 +1453,193 @@
             </div>
         </div>
         <br>
-        <!-- Schedule Now appointment form (fields exactly like original image request) -->
-        <div id="schedule" class="schedule-card">
-            <div class="schedule-left">
-                <div class="badge-scale"><i class="fas fa-calendar-check"></i> Schedule Now</div>
-                <h2>Our system is built for scaling companies with 100+ employees</h2>
-                <p>Get a tailored walkthrough of Aparaitech's intelligent attendance + HRMS suite. From face recognition to payroll integration – we handle it all.</p>
-                <ul style="margin-top: 1.5rem; list-style: none;">
-                    <li><i class="fas fa-check-circle"></i> Real-time analytics & reports</li>
-                    <li><i class="fas fa-fingerprint"></i> Biometric + face recognition</li>
-                    <li><i class="fas fa-headset"></i> 24/7 expert support</li>
-                </ul>
+ <!-- Schedule Now appointment form with Google Sheet integration + success popup -->
+<style>
+    /* Popup toast styling */
+    .demo-toast {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background: #1f8a4c;
+        color: white;
+        padding: 14px 24px;
+        border-radius: 60px;
+        font-family: 'Inter', sans-serif;
+        font-weight: 500;
+        font-size: 0.95rem;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        opacity: 0;
+        transform: translateX(30px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        pointer-events: none;
+    }
+    .demo-toast.show {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    .demo-toast i {
+        font-size: 1.3rem;
+    }
+</style>
+
+<div id="schedule" class="schedule-card">
+    <div class="schedule-left">
+        <div class="badge-scale"><i class="fas fa-calendar-check"></i> Schedule Now</div>
+        <h2>Our system is built for scaling companies with 100+ employees</h2>
+        <p>Get a tailored walkthrough of Aparaitech's intelligent attendance + HRMS suite. From face recognition to payroll integration – we handle it all.</p>
+        <ul style="margin-top: 1.5rem; list-style: none;">
+            <li><i class="fas fa-check-circle"></i> Real-time analytics & reports</li>
+            <li><i class="fas fa-fingerprint"></i> Biometric + face recognition</li>
+            <li><i class="fas fa-headset"></i> 24/7 expert support</li>
+        </ul>
+    </div>
+    <div class="schedule-form">
+        <form id="appointmentForm">
+            <input type="text" id="companyName" placeholder="Company Name *" required>
+            <input type="text" id="contactName" placeholder="Contact Name *" required>
+            <input type="tel" id="contactNumber" placeholder="Contact Number *" required>
+            <input type="email" id="contactEmail" placeholder="Contact Email *" required>
+            <select id="employeeCount" required>
+                <option value="" disabled selected>Select Number of employees</option>
+                <option value="1-100">1-100 employees</option>
+                <option value="101-500">101-500 employees</option>
+                <option value="501-1000">501-1000 employees</option>
+                <option value="1000+">1000+ employees</option>
+            </select>
+            <textarea id="message" rows="3" placeholder="Message *" required></textarea>
+            <div class="checkbox-appoint">
+                <input type="checkbox" id="termsAppoint" required>
+                <label>I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</label>
             </div>
-            <div class="schedule-form">
-                <form id="appointmentForm">
-                    <input type="text" id="companyName" placeholder="Company Name *" required>
-                    <input type="text" id="contactName" placeholder="Contact Name *" required>
-                    <input type="tel" id="contactNumber" placeholder="Contact Number *" required>
-                    <input type="email" id="contactEmail" placeholder="Contact Email *" required>
-                    <select id="employeeCount" required>
-                        <option value="" disabled selected>Select Number of employees</option>
-                        <option value="1-100">1-100 employees</option>
-                        <option value="101-500">101-500 employees</option>
-                        <option value="501-1000">501-1000 employees</option>
-                        <option value="1000+">1000+ employees</option>
-                    </select>
-                    <textarea id="message" rows="3" placeholder="Message *" required></textarea>
-                    <div class="checkbox-appoint">
-                        <input type="checkbox" id="termsAppoint" required>
-                        <label>I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</label>
-                    </div>
-                    <button type="submit" class="btn-send"><i class="fas fa-paper-plane"></i> Send Request</button>
-                </form>
-            </div>
-        </div>
+            <button type="submit" class="btn-send"><i class="fas fa-paper-plane"></i> Send Request</button>
+            <div id="formStatus" style="margin-top: 12px; font-size: 0.85rem; text-align: center;"></div>
+        </form>
+    </div>
+</div>
+
+<script>
+    (function() {
+        // 🔧 IMPORTANT: Replace this URL with your own Google Apps Script Web App URL
+        const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzcGV07KRyolwB8XbTxixdZZryKMVaXccH_Oe0SLPdxru0JP8ZH4OqJoNGpN2O2BJpAYg/exec";
+
+        const form = document.getElementById('appointmentForm');
+        const statusDiv = document.getElementById('formStatus');
+
+        // Function to show popup toast
+        function showSuccessPopup(message) {
+            // Remove any existing toast
+            const existingToast = document.querySelector('.demo-toast');
+            if(existingToast) existingToast.remove();
+
+            const toast = document.createElement('div');
+            toast.className = 'demo-toast';
+            toast.innerHTML = `<i class="fas fa-check-circle"></i> ${message}`;
+            document.body.appendChild(toast);
+            // Trigger reflow then add show class
+            setTimeout(() => toast.classList.add('show'), 10);
+            // Auto remove after 3 seconds
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const companyName = document.getElementById('companyName').value.trim();
+            const contactName = document.getElementById('contactName').value.trim();
+            const contactNumber = document.getElementById('contactNumber').value.trim();
+            const contactEmail = document.getElementById('contactEmail').value.trim();
+            const employeeCount = document.getElementById('employeeCount').value;
+            const message = document.getElementById('message').value.trim();
+            const termsChecked = document.getElementById('termsAppoint').checked;
+
+            if (!companyName || !contactName || !contactNumber || !contactEmail || !employeeCount || !message) {
+                statusDiv.innerHTML = '<span style="color:#d9534f;">⚠️ Please fill all required fields.</span>';
+                return;
+            }
+            if (!termsChecked) {
+                statusDiv.innerHTML = '<span style="color:#d9534f;">⚠️ You must agree to the Terms of Service & Privacy Policy.</span>';
+                return;
+            }
+            if (!/^\S+@\S+\.\S+$/.test(contactEmail)) {
+                statusDiv.innerHTML = '<span style="color:#d9534f;">⚠️ Enter a valid email address.</span>';
+                return;
+            }
+
+            const submitBtn = form.querySelector('.btn-send');
+            const originalBtnHTML = submitBtn.innerHTML;
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Sending...';
+            statusDiv.innerHTML = '';
+
+            const formData = {
+                timestamp: new Date().toISOString(),
+                companyName,
+                contactName,
+                contactNumber,
+                contactEmail,
+                employeeCount,
+                message,
+                source: "demo_booking_form"
+            };
+
+            try {
+                await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+
+                // ✅ Success: show both inline message + popup
+                statusDiv.innerHTML = '<span style="color:#2c7a4a;">✅ Thank you! Your demo request has been recorded. Our team will contact you soon.</span>';
+                showSuccessPopup('Demo request submitted successfully!');
+                form.reset();
+                document.getElementById('termsAppoint').checked = false;
+                document.getElementById('employeeCount').selectedIndex = 0;
+
+            } catch (error) {
+                console.error(error);
+                statusDiv.innerHTML = '<span style="color:#d9534f;">❌ Network error. Please try again later.</span>';
+                showSuccessPopup('❌ Submission failed. Please try again.'); // error popup
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalBtnHTML;
+            }
+        });
+    })();
+</script>
+
+<!-- 
+    🟢 GOOGLE APPS SCRIPT BACKEND (copy into your Sheet's Apps Script):
+    function doPost(e) {
+      try {
+        const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+        const data = JSON.parse(e.postData.contents);
+        sheet.appendRow([
+          data.timestamp || new Date().toISOString(),
+          data.companyName,
+          data.contactName,
+          data.contactNumber,
+          data.contactEmail,
+          data.employeeCount,
+          data.message,
+          data.source
+        ]);
+        return ContentService.createTextOutput(JSON.stringify({result: "success"}))
+              .setMimeType(ContentService.MimeType.JSON);
+      } catch(err) {
+        return ContentService.createTextOutput(JSON.stringify({error: err.toString()}))
+              .setMimeType(ContentService.MimeType.JSON);
+      }
+    }
+-->
     </div>
 </main>
 
@@ -1374,12 +1647,14 @@
 <footer class="footer">
     <div class="container">
         <div class="footer-grid">
-            <div class="footer-col">
+            <div class="footer-col1">
                 <h4>Our Products</h4>
                 <ul>
-                    <li>HR Software</li><li>Mobile Attendance App</li><li>Time Attendance Software</li><li>Payroll Software</li>
-                    <li>Leave Management</li><li>Claims Management</li><li>Performance Appraisal</li>
-                </ul>
+    <li><a href="https://lms.aparaitech.org/">LMS Platform for Institutes</a></li><li><a href="https://interior.aparaitech.org/">Interior Design</a></li>
+    <li><a href="https://empattendance.aparaitech.org/">Employee Attendance System</a></li>
+    <li><a href="https://svpmalumni.aparaitech.org/">Alumni Network Portal</a></li>
+    <li><a href="https://test.aparaitech.org/">Test Portal</a></li>
+</ul>
             </div>
             <div class="footer-col">
                 <h4>Our Company</h4>
@@ -1394,7 +1669,7 @@
             <div class="footer-col">
                 <h4>Contact Us</h4>
                 <ul>
-                    <li><i class="fas fa-phone-alt"></i> +91 63643 26342</li>
+                    <li><i class="fas fa-phone-alt"></i> +91 82618 40199</li>
                     <li><i class="fas fa-envelope"></i> info@aparaitechsoftware.org</li>
                     <li><a href="https://www.linkedin.com/company/aparaitech/posts/?feedView=all"><i class="fab fa-linkedin-in"></i></a></li>
                     <li><a href="https://www.youtube.com/@Aparaitech"><i class="fab fa-youtube"></i></a></li>
@@ -1424,7 +1699,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2025 Aparaitech Software Pvt Ltd. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a> | Security White Paper</p>
+            <p>© 2026 Aparaitech Software. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a> | Security White Paper</p>
             <p style="margin-top:0.5rem;">Trusted by 30K+ businesses worldwide</p>
         </div>
     </div>
